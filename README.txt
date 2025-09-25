@@ -1,131 +1,83 @@
-==================================================================================================
-
-DESCRIPTION:
-
-MUELLER is a modern and creative free agency website template. With Mueller, you can immediately 
-start creating a striking online presence that would capture everyone's attention. There is no 
-need to start from the ground up. This template includes essential features that allow you to 
-creatively introduce your business, highlight your services, showcase your best works, and much 
-more. Mueller is the perfect tool for creating a stunning website that makes your agency business 
-stand out!
-
-==================================================================================================
+GET PRO HERE:
+https://templatesjungle.gumroad.com/l/travelluv-tailwind
 
 
-LICENSE:
-
-This free resource is provided by styleshout.com and is free to use in 
-both personal and commercial projects.
-
-
-Rights:
--------
-
-You are permitted to use this free resource in any number of personal and commercial projects for 
-yourself or a client. You may modify the resource according to your requirements and include them 
-in your projects under the following condition - you MUST give appropriate credit, provide an 
-attribution link to styleshout.com.
+HOW TO START:
+(write in terminal)
+1. npm init -y
+2. npm install -D tailwindcss postcss autoprefixer vite @tailwindcss/forms
+2. npm run start
+3. (Ctrl+click) on the link
 
 
-Prohibitions:
--------------
+It is a premium HTML CSS template by TemplatesJungle.com
+You can use this template as a starter template and start building as you require.
 
-You are not permitted to resell or redistribute(even for free) the resource "as is" without 
-prior consent. If you would like to republish or promote this resource on your site, please 
-link back to the appropriate resource page on styleshout.com where users can find the download 
-and not directly to the download zip file.
+The code is consistent and can be easily maintained as we have followed a good coding standards. We want everyone to easily understand it and modify it according to their requirement. As the main goal of providing these templates is to give you something to work on before even starting.
 
 
-Attribution: 
-------------
+DOCUMENTATION:
 
-You must include a credit link to our website(https://www.styleshout.com) somewhere on your site. 
-We prefer the footer credit that comes with the template but you are still free to move it 
-somewhere else.
+https://docs.templatesjungle.com/
 
 
 
-If you have any questions about the License, feel free to contact us.
+FREE FOR BOTH PERSONAL AND COMMERCIAL USE:
+
+This HTML Template is provided by TemplatesJungle.com and is free to use in both personal and commercial projects.
 
 
------------------------------------------------------------------------------------------------------
+
+RIGHTS:
+
+You are allowed to use it in your personal projects and commercial projects.
+
+You can modify and sell it to your clients.
 
 
-REMOVING THE ATTRIBUTION LINK:
 
-We understand that there are situations where you want to use our templates without 
-the crediting obligation. If that's your case, you can always send us a 
-credit removal fee of 10 USD through Paypal. This will allow you to use a single 
-template attribution/credit link free on ONE DOMAIN name.
+PROHIBITIONS:
 
-You can send your payments through Paypal to this address: ealigam@gmail.com or
-visit our attribution removal page: https://www.styleshout.com/attribution-free/ 
-and click the pay button on the page.
+You are not permitted to resell or redistribute (paid or free) as it is. 
 
-If possible, kindly send us the site's url where the template is being used. 
-Also, keep your Paypal receipt as proof of payment and your good to go.
+You cannot use it to build premium templates, themes or any other goods to be sold on marketplaces.
 
+If you want to share the resource in your blog, you must point it to original TemplatesJungle.com resource page. 
 
------------------------------------------------------------------------------------------------------- 
+You cannot host the download file in your website.
+
 
 
 SUPPORT:
-    
-Since MUELLER is distributed for free, support is not offered. MUELLER is coded according 
-to current web standards and we did our best to make the template easy to use and modify.
-If you have minimum web development experience, you can easily modify the template. 
-However, If you're still new to HTML and CSS, I suggest that you visit the 
-following tutorials:
 
- - https://marksheet.io/
- - http://learn.shayhowe.com/html-css/
+You can contact us to report any bugs and errors in the template. We will try and fix them immediately although it's a free resource.
 
-These will teach you the essentials of HTML and CSS. In addition, if you want to include
-javascript in your skill-set, you can also check out these tutorials: 
+Feel free to let us know about what you want to see in the future downloads. We will definitely give it a thought while creating our next freebie.
 
- - https://www.codecademy.com/learn/introduction-to-javascript
- - https://javascript.info/
+support@templatesjungle.com
 
 
 
------------------------------------------------------------------------------------------------------- 
+CREDITS & REFERENCES:
 
+https://getbootstrap.com/
 
-GET THE LATEST VERSION:
+Stock Photos
+https://unsplash.com/
+https://www.freepik.com/
+https://www.pexels.com/
 
-We update our templates on a regular basis so to make sure that you have the latest version, 
-always download the template files directly on our website(https://www.styleshout.com/)
+Fonts
+Google fonts
+https://fonts.google.com/
 
+Icons
+https://iconify.design/
 
+JQuery Plugins
+Swiper Slider - https://swiperjs.com/
+Chocolat.js – a Free Lightbox Plugin -http://chocolat.insipi.de/
 
-
--------------------------------------------------------------------------------------------------------
-
-
-SOURCES AND CREDITS:
-
-I've used the following resources as listed.
-
-Fonts:
- - Inter Font (https://fonts.google.com/specimen/Inter)
- - Manrope Font (https://fonts.google.com/specimen/Manrope)
-
-Icons:
- - Boxicons (https://boxicons.com/)
-
-Stock Photos and Graphics:
- - Unsplash.com (https://unsplash.com/)
- - LogoToUse.com (https://www.logotouse.com/)
- 
-Javascript Files:
- - Swiper (https://swiperjs.com/)
- - MoveTo.js (https://github.com/hsnaydd/moveTo)
- - Prism.js (https://prismjs.com/)
- - PhotoSwipe (https://photoswipe.com/)
-
--------------------------------------------------------------------------------------------------------
-
-
-Thanks for downloading from StyleShout :)
+Thanks for downloading from TemplatesJungle.com !
 
 

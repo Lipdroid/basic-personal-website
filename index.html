@@ -253,12 +253,46 @@
             box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
         }
 
+        /* Film Section - Full Width Hero with Video Background */
+        .film-section-wrapper {
+            width: 100%;
+            height: 60vh;
+            min-height: 500px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-film {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .section-film .video-background {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            object-fit: cover;
+        }
+
+        .section-film .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
         /* Text Section */
         .text-section {
             background: #0a0a0a;
             color: white;
             padding: 120px 50px 80px;
             text-align: center;
+            display: none;
         }
 
         .text-section h2 {
@@ -522,6 +556,20 @@
             .intro-content h2 {
                 font-size: 2rem;
             }
+
+            .portfolio-section {
+                padding: 80px 40px;
+            }
+
+            .portfolio-scroll-container::before,
+            .portfolio-scroll-container::after {
+                width: 100px;
+            }
+
+            .portfolio-scroll-content img {
+                height: 200px;
+                width: 356px;
+            }
         }
 
         @media screen and (max-width: 480px) {
@@ -611,6 +659,11 @@
                 padding: 12px 28px;
                 font-size: 0.85rem;
             }
+
+            .film-section-wrapper {
+                height: 50vh;
+                min-height: 400px;
+            }
         }
     </style>
 </head>
@@ -688,16 +741,20 @@
         </div>
     </section>
 
-    <!-- Text Section -->
-    <section class="text-section">
-        <h2>CREATIVE PORTFOLIO</h2>
-        <p>
-            Welcome to my creative space where sound, color, and technology converge.
-            I specialize in crafting immersive experiences through innovative sound design,
-            stunning visual artistry, and cutting-edge creative tools. Each project is an
-            opportunity to push boundaries and create something extraordinary.
-        </p>
-    </section>
+    <!-- Film Section - Full Width Hero with Video Background -->
+    <div class="film-section-wrapper">
+        <div class="hero-section section-film">
+            <video class="video-background" autoplay muted loop playsinline>
+                <source src="images/videos/film-bg.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="hero-content">
+                <h1>FILMS</h1>
+                <p>Visual Storytelling & Cinematography</p>
+                <a href="portfolio.html" class="explore-btn">Explore</a>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer/About Section -->
     <footer class="footer-section">
@@ -751,8 +808,11 @@
         </div>
     </footer>
 
+    <!-- Load website configuration -->
+    <script src="config.js"></script>
+
     <script>
-        // Seamless infinite scroll without jumping
+        // Seamless infinite scroll for tools section
         const scrollContent = document.getElementById('scrollContent');
         let scrollPosition = 0;
         const scrollSpeed = 0.5; // pixels per frame

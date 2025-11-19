@@ -16,9 +16,11 @@ Simply update the `config.js` file - all your content is in ONE place with clear
 
 | Section | Aspect Ratio | Recommended Size | Format | Location |
 |---------|--------------|------------------|--------|----------|
-| **Hero Backgrounds** (SFX, COLOR, TOOLS) | 16:9 (Landscape) | 1920x1080px+ | JPG/PNG | `images/fulls/` |
+| **Hero Backgrounds** (SFX, COLOR, TOOLS, PRODUCT) | 16:9 (Landscape) | 1920x1080px+ | JPG/PNG | `images/fulls/` |
 | **FILM Background Video** ⭐ | 16:9 (Landscape) | 1920x1080px | MP4 (H.264) | `images/videos/` |
+| **GEARS Background Video** ⭐ | 16:9 (Landscape) | 1920x1080px | MP4 (H.264) | `images/videos/` |
 | **FILM Fallback Image** | 16:9 (Landscape) | 1920x1080px+ | JPG/PNG | `images/fulls/` |
+| **GEARS Fallback Image** | 16:9 (Landscape) | 1920x1080px+ | JPG/PNG | `images/fulls/` |
 | **Profile Photo** (Introduction) | 2:3 (Portrait) | 800x1200px | JPG/PNG | `images/fulls/` |
 | **Brand Logos** (Tools Section) | 1:1 (Square) | 400x400px | PNG (transparent) | `images/thumbs/` |
 | **Footer Images** | Flexible | 400x600px | JPG/PNG | `images/thumbs/` |
@@ -26,8 +28,9 @@ Simply update the `config.js` file - all your content is in ONE place with clear
 
 **💡 Quick Tips:**
 - All hero backgrounds should be 16:9 landscape format (widescreen)
-- FILM section uses a looping video background for dynamic effect!
-- Video will autoplay, loop, and be muted (required for browser autoplay)
+- FILM and GEARS sections use looping video backgrounds for dynamic effect!
+- PRODUCT section has unique styling with margins and rounded corners
+- Videos will autoplay, loop, and be muted (required for browser autoplay)
 
 ---
 
@@ -207,6 +210,8 @@ basic-personal-website/
 ├── sfx.html
 ├── color.html
 ├── tools.html
+├── product.html         (NEW - Product design page)
+├── gears.html           (NEW - Gears & equipment page)
 ├── config.js (Your content reference file)
 ├── CONTENT-GUIDE.md (This file)
 │
@@ -216,10 +221,13 @@ basic-personal-website/
 │   │   ├── 02.jpg     (COLOR background)
 │   │   ├── 03.jpg     (TOOLS background)
 │   │   ├── 04.jpg     (Introduction profile photo)
-│   │   └── 05.jpg     (FILM fallback background)
+│   │   ├── 05.jpg     (FILM fallback background)
+│   │   ├── 06.jpg     (PRODUCT background)
+│   │   └── 07.jpg     (GEARS fallback background)
 │   │
 │   ├── videos/         (Background videos)
-│   │   └── film-bg.mp4 (FILM section background video)
+│   │   ├── film-bg.mp4   (FILM section background video)
+│   │   └── gears-bg.mp4  (GEARS section background video)
 │   │
 │   └── thumbs/         (Smaller images, logos, thumbnails)
 │       ├── 01.jpg     (Brand logo or footer image 1)
@@ -234,7 +242,7 @@ basic-personal-website/
     └── js/
 ```
 
-**Note:** Create the `images/videos/` folder if it doesn't exist yet!
+**Note:** The `images/videos/` folder has been created for you!
 
 ---
 
@@ -288,12 +296,13 @@ basic-personal-website/
 
 3. **Image Sizes & Aspect Ratios:**
 
-   **Hero Background Images (SFX, COLOR, TOOLS):**
+   **Hero Background Images (SFX, COLOR, TOOLS, PRODUCT):**
    - Aspect Ratio: **16:9 (Landscape/Widescreen)**
    - Recommended Size: 1920x1080px or larger
    - File Format: JPG or PNG
    - Location: `images/fulls/`
    - Tips: Use high-quality images with good composition. Center-weighted subjects work best as the text appears in the center
+   - PRODUCT section has special styling with 20px margins and rounded corners for visual distinction
 
    **FILM Section Background Video:**
    - Aspect Ratio: **16:9 (Landscape/Widescreen)**
@@ -315,6 +324,28 @@ basic-personal-website/
      - Test on mobile devices for performance
 
    **FILM Section Fallback Image:**
+   - Same specs as hero backgrounds above
+   - Shows if video fails to load or on slower connections
+
+   **GEARS Section Background Video:**
+   - Aspect Ratio: **16:9 (Landscape/Widescreen)**
+   - Recommended Size: 1920x1080px (Full HD)
+   - File Format: **MP4 (H.264 codec)** - Best browser compatibility
+   - Duration: 10-30 seconds (it will loop automatically)
+   - File Size: Keep under 10MB for fast loading
+   - Location: `images/videos/`
+   - Video Settings:
+     - Autoplays on page load
+     - Loops continuously
+     - Muted (required for autoplay)
+     - Use `playsinline` for iOS devices
+   - Tips:
+     - Showcase your equipment and gear in action
+     - Good contrast for white text overlay
+     - Consider adding a dark overlay if video is too bright
+     - Compress video to reduce file size
+
+   **GEARS Section Fallback Image:**
    - Same specs as hero backgrounds above
    - Shows if video fails to load or on slower connections
 

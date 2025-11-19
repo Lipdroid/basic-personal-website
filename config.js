@@ -28,7 +28,9 @@ const websiteConfig = {
             { text: "HOME", url: "index.html" },
             { text: "COLOR", url: "color.html" },
             { text: "SFX", url: "sfx.html" },
-            { text: "TOOLS", url: "tools.html" }
+            { text: "TOOLS", url: "tools.html" },
+            { text: "PRODUCT", url: "product.html" },
+            { text: "GEARS", url: "gears.html" }
         ]
     },
 
@@ -54,14 +56,37 @@ const websiteConfig = {
             subtitle: "Creative Technology & Innovation",
             backgroundImage: "images/fulls/03.jpg",
             link: "tools.html"
-        },
+        }
+    },
+
+    // ========================================
+    // FULL-WIDTH VIDEO SECTIONS
+    // ========================================
+    videoSections: {
         film: {
             title: "FILMS",
             subtitle: "Visual Storytelling & Cinematography",
             backgroundVideo: "images/videos/film-bg.mp4",  // Add your background video here (MP4 format recommended)
             backgroundImage: "images/fulls/05.jpg",  // Fallback image if video doesn't load
             link: "portfolio.html"
+        },
+        gears: {
+            title: "GEARS I USE",
+            subtitle: "Equipment & Technology",
+            backgroundVideo: "images/videos/gears-bg.mp4",  // Add your gears background video here
+            backgroundImage: "images/fulls/07.jpg",  // Fallback image if video doesn't load
+            link: "gears.html"
         }
+    },
+
+    // ========================================
+    // PRODUCTS GRID SECTION (After GEARS - with margins)
+    // ========================================
+    // Shows SFX, COLOR, TOOLS in a grid with spacing
+    productGrid: {
+        heading: "PRODUCTS",
+        // Uses the same items as heroSections above
+        // Items will be automatically populated from heroSections
     },
 
 
@@ -284,6 +309,8 @@ updateVideoIds();
 document.addEventListener('DOMContentLoaded', function() {
     loadNavigationContent();
     loadHeroContent();
+    loadVideoSections();
+    loadProductGrid();
     loadToolsPoweredByContent();
     loadIntroductionContent();
     loadFooterContent();
@@ -299,6 +326,20 @@ function loadNavigationContent() {
         logo.textContent = websiteConfig.navigation.logo;
     });
 
+    // Update menu items
+    const navMenu = document.querySelector('.nav-menu');
+    if (navMenu) {
+        navMenu.innerHTML = '';
+        websiteConfig.navigation.menuItems.forEach(item => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = item.url;
+            a.textContent = item.text;
+            li.appendChild(a);
+            navMenu.appendChild(li);
+        });
+    }
+
     // Update page title
     if (document.querySelector('title')) {
         document.querySelector('title').textContent = websiteConfig.siteTitle;
@@ -306,7 +347,7 @@ function loadNavigationContent() {
 }
 
 /**
- * Update Hero Sections (only on index.html)
+ * Update Hero Sections (top 3-column grid on index.html)
  */
 function loadHeroContent() {
     // SFX Section
@@ -335,30 +376,99 @@ function loadHeroContent() {
         toolsSection.querySelector('.explore-btn').href = websiteConfig.heroSections.tools.link;
         toolsSection.style.backgroundImage = `url('${websiteConfig.heroSections.tools.backgroundImage}')`;
     }
+}
 
+/**
+ * Update Video Sections (FILM and GEARS)
+ */
+function loadVideoSections() {
     // FILM Section (with video background)
     const filmSection = document.querySelector('.section-film');
     if (filmSection) {
-        filmSection.querySelector('h1').textContent = websiteConfig.heroSections.film.title;
-        filmSection.querySelector('p').textContent = websiteConfig.heroSections.film.subtitle;
-        filmSection.querySelector('.explore-btn').href = websiteConfig.heroSections.film.link;
+        filmSection.querySelector('h1').textContent = websiteConfig.videoSections.film.title;
+        filmSection.querySelector('p').textContent = websiteConfig.videoSections.film.subtitle;
+        filmSection.querySelector('.explore-btn').href = websiteConfig.videoSections.film.link;
 
-        // Update video source if video element exists
+        // Update video source
         const videoElement = filmSection.querySelector('.video-background');
-        if (videoElement && websiteConfig.heroSections.film.backgroundVideo) {
+        if (videoElement && websiteConfig.videoSections.film.backgroundVideo) {
             const videoSource = videoElement.querySelector('source');
             if (videoSource) {
-                videoSource.src = websiteConfig.heroSections.film.backgroundVideo;
-                videoElement.load(); // Reload video with new source
+                videoSource.src = websiteConfig.videoSections.film.backgroundVideo;
+                videoElement.load();
             }
         }
 
         // Set fallback background image
-        if (websiteConfig.heroSections.film.backgroundImage) {
-            filmSection.style.backgroundImage = `url('${websiteConfig.heroSections.film.backgroundImage}')`;
+        if (websiteConfig.videoSections.film.backgroundImage) {
+            filmSection.style.backgroundImage = `url('${websiteConfig.videoSections.film.backgroundImage}')`;
             filmSection.style.backgroundSize = 'cover';
             filmSection.style.backgroundPosition = 'center';
         }
+    }
+
+    // GEARS Section (with video background)
+    const gearsSection = document.querySelector('.section-gears');
+    if (gearsSection) {
+        gearsSection.querySelector('h1').textContent = websiteConfig.videoSections.gears.title;
+        gearsSection.querySelector('p').textContent = websiteConfig.videoSections.gears.subtitle;
+        gearsSection.querySelector('.explore-btn').href = websiteConfig.videoSections.gears.link;
+
+        // Update video source
+        const videoElement = gearsSection.querySelector('.video-background');
+        if (videoElement && websiteConfig.videoSections.gears.backgroundVideo) {
+            const videoSource = videoElement.querySelector('source');
+            if (videoSource) {
+                videoSource.src = websiteConfig.videoSections.gears.backgroundVideo;
+                videoElement.load();
+            }
+        }
+
+        // Set fallback background image
+        if (websiteConfig.videoSections.gears.backgroundImage) {
+            gearsSection.style.backgroundImage = `url('${websiteConfig.videoSections.gears.backgroundImage}')`;
+            gearsSection.style.backgroundSize = 'cover';
+            gearsSection.style.backgroundPosition = 'center';
+        }
+    }
+}
+
+/**
+ * Update Product Grid Section
+ * Uses the same SFX, COLOR, TOOLS from heroSections
+ */
+function loadProductGrid() {
+    // Update heading
+    const productHeading = document.querySelector('.product-section-heading');
+    if (productHeading) {
+        productHeading.textContent = websiteConfig.productGrid.heading;
+    }
+
+    // Update SFX
+    const productSfx = document.querySelector('.section-product-sfx');
+    if (productSfx) {
+        productSfx.querySelector('h1').textContent = websiteConfig.heroSections.sfx.title;
+        productSfx.querySelector('p').textContent = websiteConfig.heroSections.sfx.subtitle;
+        productSfx.querySelector('.explore-btn').href = websiteConfig.heroSections.sfx.link;
+        productSfx.style.backgroundImage = `url('${websiteConfig.heroSections.sfx.backgroundImage}')`;
+    }
+
+    // Update COLOR
+    const productColor = document.querySelector('.section-product-color');
+    if (productColor) {
+        productColor.querySelector('h1').textContent = websiteConfig.heroSections.color.title;
+        productColor.querySelector('p').textContent = websiteConfig.heroSections.color.subtitle;
+        productColor.querySelector('.explore-btn').href = websiteConfig.heroSections.color.link;
+        productColor.style.backgroundImage = `url('${websiteConfig.heroSections.color.backgroundImage}')`;
+    }
+
+    // Update TOOLS
+    const productTools = document.querySelector('.section-product-tools');
+    if (productTools) {
+        productTools.querySelector('h1').textContent = websiteConfig.heroSections.tools.title;
+        productTools.querySelector('p').textContent = websiteConfig.heroSections.tools.subtitle;
+        productTools.querySelector('.explore-btn').href = websiteConfig.heroSections.tools.link;
+        productTools.style.backgroundImage = `url('${websiteConfig.heroSections.tools.backgroundImage}')`;
     }
 }
 

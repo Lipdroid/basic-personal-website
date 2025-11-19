@@ -1,0 +1,246 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>GEARS - Equipment & Technology</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Bar */
+        .nav-bar {
+            position: fixed;
+            top: 20px;
+            left: 80px;
+            right: 80px;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .nav-bar .logo {
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-bar .logo:hover {
+            opacity: 0.7;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            opacity: 0.7;
+        }
+
+        .hero-section {
+            height: 60vh;
+            background-image: url('images/fulls/07.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 5rem;
+            font-weight: 200;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            font-weight: 300;
+            letter-spacing: 0.15em;
+        }
+
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 50px;
+        }
+
+        .content-section h2 {
+            font-size: 2.5rem;
+            font-weight: 200;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .content-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .content-card h3 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .content-card p {
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav-bar {
+                padding: 20px 30px;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+                letter-spacing: 0.2em;
+            }
+
+            .content-section {
+                padding: 60px 30px;
+            }
+
+            .content-section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+        <a href="index.html" class="logo">LipuHossain</a>
+        <ul class="nav-menu">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="color.html">COLOR</a></li>
+            <li><a href="sfx.html">SFX</a></li>
+            <li><a href="tools.html">TOOLS</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>GEARS I USE</h1>
+            <p>Equipment & Technology</p>
+        </div>
+    </div>
+
+    <section class="content-section">
+        <h2>My Equipment</h2>
+        <p style="text-align: center; font-size: 1.1rem; font-weight: 300; line-height: 1.8; max-width: 800px; margin: 0 auto; color: rgba(255, 255, 255, 0.8);">
+            Professional equipment and technology I use to create high-quality content.
+            From cameras to audio gear, every piece is carefully selected for excellence.
+        </p>
+
+        <div class="content-grid">
+            <div class="content-card">
+                <h3>Cameras</h3>
+                <p>Professional cinema cameras and DSLRs for capturing stunning visuals. High-resolution sensors and advanced color science for cinematic results.</p>
+            </div>
+
+            <div class="content-card">
+                <h3>Lenses</h3>
+                <p>Premium cinema and photography lenses. From wide-angle to telephoto, covering every focal length needed for diverse shooting scenarios.</p>
+            </div>
+
+            <div class="content-card">
+                <h3>Audio Equipment</h3>
+                <p>Professional microphones, recorders, and monitoring systems. Crystal-clear audio capture for films, interviews, and sound design work.</p>
+            </div>
+
+            <div class="content-card">
+                <h3>Lighting</h3>
+                <p>Studio and portable lighting solutions. LED panels, softboxes, and modifiers for creating perfect lighting in any environment.</p>
+            </div>
+
+            <div class="content-card">
+                <h3>Stabilization</h3>
+                <p>Gimbals, steadicams, and tripods for smooth, professional camera movement. Essential for cinematic storytelling and dynamic shots.</p>
+            </div>
+
+            <div class="content-card">
+                <h3>Post-Production</h3>
+                <p>High-performance workstations with professional monitors. Color-accurate displays and powerful computers for efficient editing and grading.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Load website configuration -->
+    <script src="config.js"></script>
+</body>
+</html>

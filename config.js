@@ -98,12 +98,12 @@ const websiteConfig = {
     toolsPoweredBy: {
         heading: "Assets, films and tools powered by",
         logos: [
-            "images/thumbs/01.jpg",  // Replace with your brand logo 1
-            "images/thumbs/02.jpg",  // Replace with your brand logo 2
-            "images/thumbs/03.jpg",  // Replace with your brand logo 3
-            "images/thumbs/04.jpg",  // Replace with your brand logo 4
-            "images/thumbs/05.jpg",  // Replace with your brand logo 5
-            "images/thumbs/06.jpg"   // Replace with your brand logo 6
+            "images/thumbs/01.png",  // Replace with your brand logo 1
+            "images/thumbs/02.png",  // Replace with your brand logo 2
+            "images/thumbs/03.png",  // Replace with your brand logo 3
+            "images/thumbs/04.png",  // Replace with your brand logo 4
+            "images/thumbs/05.png",  // Replace with your brand logo 5
+            "images/thumbs/06.png"   // Replace with your brand logo 6
         ]
     },
 

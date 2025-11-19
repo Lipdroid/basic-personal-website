@@ -1,0 +1,232 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>COLOR - Visual Arts & Color Grading</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-bar .logo {
+            font-size: 1.5rem;
+            font-weight: 200;
+            letter-spacing: 0.2em;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .nav-bar .logo:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .back-btn {
+            padding: 10px 30px;
+            border: 1px solid white;
+            background: transparent;
+            color: white;
+            text-decoration: none;
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: white;
+            color: #000;
+            transform: translateY(-2px);
+        }
+
+        .hero-section {
+            height: 60vh;
+            background-image: url('images/fulls/02.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 5rem;
+            font-weight: 200;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            font-weight: 300;
+            letter-spacing: 0.15em;
+        }
+
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 50px;
+        }
+
+        .content-section h2 {
+            font-size: 2.5rem;
+            font-weight: 200;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .content-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .content-card h3 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .content-card p {
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav-bar {
+                padding: 20px 30px;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+                letter-spacing: 0.2em;
+            }
+
+            .content-section {
+                padding: 60px 30px;
+            }
+
+            .content-section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <a href="index.html" class="logo">Portfolio</a>
+        <a href="index.html" class="back-btn">Back to Home</a>
+    </nav>
+
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>COLOR</h1>
+            <p>Visual Arts & Color Grading</p>
+        </div>
+    </div>
+
+    <section class="content-section">
+        <h2>Visual Excellence</h2>
+        <p style="text-align: center; font-size: 1.1rem; font-weight: 300; line-height: 1.8; max-width: 800px; margin: 0 auto; color: rgba(255, 255, 255, 0.8);">
+            Transforming visual narratives through expert color grading and visual artistry.
+            Creating mood, atmosphere, and emotional resonance through the power of color.
+        </p>
+
+        <div class="content-grid">
+            <div class="content-card">
+                <h3>Color Grading</h3>
+                <p>Professional color correction and grading for film, commercials, and digital content. Creating distinctive looks that enhance storytelling and visual impact.</p>
+            </div>
+
+            <div class="content-card">
+                <h3>Digital Art</h3>
+                <p>Creating original digital artwork and illustrations. Combining traditional art principles with modern digital techniques to produce stunning visuals.</p>
+            </div>
+
+            <div class="content-card">
+                <h3>Motion Graphics</h3>
+                <p>Designing and animating compelling motion graphics for various media. From title sequences to explainer videos and branded content.</p>
+            </div>
+
+            <div class="content-card">
+                <h3>Visual Effects</h3>
+                <p>Compositing and VFX work for film and video projects. Seamlessly integrating CGI elements with live-action footage for realistic results.</p>
+            </div>
+
+            <div class="content-card">
+                <h3>Photography</h3>
+                <p>Professional photography and retouching services. Specializing in portrait, product, and architectural photography with meticulous post-processing.</p>
+            </div>
+
+            <div class="content-card">
+                <h3>Brand Identity</h3>
+                <p>Developing cohesive visual identities for brands and businesses. From logo design to complete brand guidelines and visual systems.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -28,7 +28,8 @@ const websiteConfig = {
             { text: "HOME", url: "index.html" },
             { text: "COLOR", url: "color.html" },
             { text: "SFX", url: "sfx.html" },
-            { text: "TOOLS", url: "tools.html" }
+            { text: "TOOLS", url: "tools.html" },
+            { text: "BUY", url: "buy.html" }
         ]
     },
 
@@ -254,6 +255,91 @@ const websiteConfig = {
             sectionHeading: "Technical Expertise",
             sectionDescription: "Leveraging cutting-edge tools and technologies to bring creative visions to life. Constantly evolving with industry standards and emerging technologies."
         }
+    },
+
+
+    // ========================================
+    // PRODUCTS / BUY PAGE
+    // ========================================
+    // Configure your digital products here
+    // After setting up Stripe, replace the stripePaymentLink with your actual Stripe Payment Link
+    // After setting up file hosting, replace downloadLink with your Google Drive share link
+    products: {
+        pageTitle: "BUY - Digital Products",
+        pageHeading: "DIGITAL PRODUCTS",
+        pageSubtitle: "Premium assets for creators",
+
+        // Product List
+        items: [
+            {
+                id: "product-1",
+                name: "Cinematic SFX Pack Vol. 1",
+                description: "Professional sound effects library with 500+ cinematic sounds. Perfect for film, video games, and content creation.",
+                price: "$29",
+                image: "images/products/sfx-pack.jpg",  // Add your product image here
+                features: [
+                    "500+ High-quality SFX",
+                    "24-bit WAV format",
+                    "Organized categories",
+                    "Royalty-free license"
+                ],
+                // STRIPE: Replace with your Stripe Payment Link after setup
+                stripePaymentLink: "YOUR_STRIPE_PAYMENT_LINK_HERE",
+                // GOOGLE DRIVE: Replace with your product download link after setup
+                downloadLink: "YOUR_GOOGLE_DRIVE_LINK_HERE"
+            },
+            {
+                id: "product-2",
+                name: "Professional LUTs Collection",
+                description: "25 cinema-grade color grading LUTs for DaVinci Resolve, Premiere Pro, and Final Cut Pro. Instant cinematic look.",
+                price: "$39",
+                image: "images/products/luts-pack.jpg",  // Add your product image here
+                features: [
+                    "25 Premium LUTs",
+                    ".cube format",
+                    "Works with all major NLEs",
+                    "Commercial use included"
+                ],
+                // STRIPE: Replace with your Stripe Payment Link after setup
+                stripePaymentLink: "YOUR_STRIPE_PAYMENT_LINK_HERE",
+                // GOOGLE DRIVE: Replace with your product download link after setup
+                downloadLink: "YOUR_GOOGLE_DRIVE_LINK_HERE"
+            },
+            {
+                id: "product-3",
+                name: "Motion Graphics Templates",
+                description: "50 customizable motion graphics templates for Adobe After Effects. Lower thirds, titles, and transitions.",
+                price: "$49",
+                image: "images/products/motion-templates.jpg",  // Add your product image here
+                features: [
+                    "50 Unique templates",
+                    "Fully customizable",
+                    "Includes tutorials",
+                    "Free updates"
+                ],
+                // STRIPE: Replace with your Stripe Payment Link after setup
+                stripePaymentLink: "YOUR_STRIPE_PAYMENT_LINK_HERE",
+                // GOOGLE DRIVE: Replace with your product download link after setup
+                downloadLink: "YOUR_GOOGLE_DRIVE_LINK_HERE"
+            },
+            {
+                id: "product-4",
+                name: "Ambient Music Pack",
+                description: "20 atmospheric background music tracks. Perfect for documentaries, vlogs, and ambient content. Fully licensed.",
+                price: "$59",
+                image: "images/products/music-pack.jpg",  // Add your product image here
+                features: [
+                    "20 Original tracks",
+                    "MP3 & WAV included",
+                    "Loop-ready versions",
+                    "Lifetime license"
+                ],
+                // STRIPE: Replace with your Stripe Payment Link after setup
+                stripePaymentLink: "YOUR_STRIPE_PAYMENT_LINK_HERE",
+                // GOOGLE DRIVE: Replace with your product download link after setup
+                downloadLink: "YOUR_GOOGLE_DRIVE_LINK_HERE"
+            }
+        ]
     }
 };
 

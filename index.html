@@ -94,13 +94,13 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.4);  /* Brighter by default */
             transition: background 0.4s ease;
             z-index: 1;
         }
 
         .hero-section:hover::before {
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.7);  /* Darker on hover for text readability */
         }
 
         .hero-content {
@@ -454,13 +454,13 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.4);  /* Brighter by default */
             transition: background 0.4s ease;
             z-index: 1;
         }
 
         .product-grid-item:hover::before {
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.7);  /* Darker on hover for text readability */
         }
 
         .product-grid-item .hero-content {
@@ -488,7 +488,10 @@
             font-size: 0.7rem;  /* Smaller subtitle */
             font-weight: 300;
             letter-spacing: 0.15em;
-            transition: all 0.3s ease;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+            position: relative;
         }
 
         .product-grid-item .hero-content p:hover {
@@ -497,6 +500,7 @@
 
         .product-grid-item:hover .hero-content p {
             opacity: 0;
+            visibility: hidden;
             transform: translateY(-20px);
         }
 
@@ -506,8 +510,9 @@
             left: 50%;
             transform: translate(-50%, -50%);
             opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 3;
+            visibility: hidden;
+            transition: opacity 0.3s ease 0.1s, visibility 0s ease 0.1s;
+            z-index: 10;
             text-decoration: none;
             color: white;
             font-size: 0.75rem;  /* Even smaller explore text */
@@ -515,10 +520,12 @@
             letter-spacing: 0.2em;
             text-transform: uppercase;
             pointer-events: none;
+            margin-top: 70px;
         }
 
         .product-grid-item:hover .explore-btn {
             opacity: 1;
+            visibility: visible;
             pointer-events: auto;
         }
 
@@ -948,10 +955,134 @@
             .product-grid-item .explore-btn {
                 font-size: 0.7rem;
             }
+
+            /* Hide desktop nav menu on mobile */
+            .nav-menu {
+                display: none;
+            }
+
+            /* Show hamburger on mobile */
+            .hamburger {
+                display: flex !important;
+            }
+
+            /* Adjust nav bar on mobile */
+            .nav-bar {
+                left: 20px;
+                right: 20px;
+                padding: 15px 25px;
+            }
+        }
+
+        /* Hamburger Menu Icon */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1001;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background: white;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Mobile Drawer */
+        .mobile-drawer {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 70%;
+            max-width: 300px;
+            height: 100vh;
+            background: rgba(20, 20, 20, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+            transition: right 0.4s ease;
+            padding: 100px 40px 40px;
+        }
+
+        .mobile-drawer.active {
+            right: 0;
+        }
+
+        .mobile-drawer ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .mobile-drawer ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            display: block;
+            padding: 10px 0;
+        }
+
+        .mobile-drawer ul li a:hover {
+            opacity: 0.7;
+            transform: translateX(-5px);
+        }
+
+        /* Overlay for drawer */
+        .drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+
+        .drawer-overlay.active {
+            opacity: 1;
+            visibility: visible;
         }
     </style>
 </head>
 <body>
+    <!-- Drawer Overlay -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="color.html">COLOR</a></li>
+            <li><a href="sfx.html">SFX</a></li>
+            <li><a href="tools.html">TOOLS</a></li>
+        </ul>
+    </div>
+
     <!-- Navigation Bar -->
     <nav class="nav-bar">
         <a href="index.html" class="logo">LipuHossain</a>
@@ -961,6 +1092,11 @@
             <li><a href="sfx.html">SFX</a></li>
             <li><a href="tools.html">TOOLS</a></li>
         </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </nav>
 
     <!-- Hero Container -->
@@ -1244,6 +1380,34 @@
             modal.style.display = 'none';
             contactForm.reset();
         }
+
+        // Mobile Drawer functionality
+        const hamburger = document.getElementById('hamburger');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        const drawerOverlay = document.getElementById('drawerOverlay');
+
+        // Toggle drawer
+        function toggleDrawer() {
+            hamburger.classList.toggle('active');
+            mobileDrawer.classList.toggle('active');
+            drawerOverlay.classList.toggle('active');
+        }
+
+        // Open/close drawer on hamburger click
+        hamburger.addEventListener('click', toggleDrawer);
+
+        // Close drawer on overlay click
+        drawerOverlay.addEventListener('click', toggleDrawer);
+
+        // Close drawer when clicking a link
+        const drawerLinks = mobileDrawer.querySelectorAll('a');
+        drawerLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileDrawer.classList.remove('active');
+                drawerOverlay.classList.remove('active');
+            });
+        });
     </script>
 </body>
 </html>

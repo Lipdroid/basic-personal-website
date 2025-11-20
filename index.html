@@ -968,23 +968,29 @@
 
             /* Adjust nav bar on mobile - remove glassmorphism */
             .nav-bar {
-                left: 0;
-                right: 0;
-                top: 0;
-                padding: 20px 25px;
-                background: transparent;
-                backdrop-filter: none;
-                -webkit-backdrop-filter: none;
-                border: none;
-                border-radius: 0;
-                box-shadow: none;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
+                left: 0 !important;
+                right: 0 !important;
+                top: 0 !important;
+                padding: 20px 25px !important;
+                background: transparent !important;
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+                border: none !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                display: flex !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                width: 100% !important;
             }
 
             .nav-bar .logo {
                 font-size: 1rem;
+                margin-right: auto;
+            }
+
+            .hamburger {
+                margin-left: auto;
             }
         }
 

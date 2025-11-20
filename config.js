@@ -116,7 +116,7 @@ const websiteConfig = {
         image: "images/fulls/04.jpg",  // Replace with your profile photo
 
         // Main heading text
-        heading: "Hi, I'm LipuHossain — a Creative Professional with a passion for innovation.",
+        heading: "Hi, I'm LipuHossain — a Tokyo based Creative Professional with a passion for filmmaking.",
 
         // Button settings
         buttonText: "View my work",

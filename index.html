@@ -1530,6 +1530,35 @@
 
         // Call on load
         makeAllSectionsClickable();
+
+        // Hide/Show navigation on scroll (mobile only)
+        let lastScrollTop = 0;
+        let navBar = document.querySelector('.nav-bar');
+        let scrollThreshold = 10; // Minimum scroll distance to trigger hide/show
+
+        window.addEventListener('scroll', function() {
+            // Only apply on mobile (screen width <= 480px)
+            if (window.innerWidth <= 480) {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                // Check if scrolled more than threshold
+                if (Math.abs(scrollTop - lastScrollTop) > scrollThreshold) {
+                    if (scrollTop > lastScrollTop && scrollTop > 100) {
+                        // Scrolling down & not at top - hide navbar
+                        navBar.style.transform = 'translateY(-100%)';
+                        navBar.style.transition = 'transform 0.3s ease';
+                    } else {
+                        // Scrolling up - show navbar
+                        navBar.style.transform = 'translateY(0)';
+                        navBar.style.transition = 'transform 0.3s ease';
+                    }
+                    lastScrollTop = scrollTop;
+                }
+            } else {
+                // Reset on desktop
+                navBar.style.transform = 'translateY(0)';
+            }
+        });
     </script>
 </body>
 </html>

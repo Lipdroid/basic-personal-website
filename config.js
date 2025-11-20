@@ -65,7 +65,7 @@ const websiteConfig = {
         film: {
             title: "FILMS",
             subtitle: "Visual Storytelling & Cinematography",
-            backgroundVideo: "images/videos/film-bg.mp4",  // Add your background video here (MP4 format recommended)
+            backgroundVideo: "images/videos/film-bg.mov",  // Add your background video here (MP4 format recommended)
             backgroundImage: "images/fulls/05.jpg",  // Fallback image if video doesn't load
             link: "portfolio.html"
         },

@@ -214,13 +214,14 @@ const websiteConfig = {
         handle: "@LipuHossain",
 
         // Footer image grid (6 images displayed vertically)
+        // These are separate from the brand logos above
         imageGrid: [
-            "images/thumbs/01.jpg",  // Replace with your image 1
-            "images/thumbs/02.jpg",  // Replace with your image 2
-            "images/thumbs/03.jpg",  // Replace with your image 3
-            "images/thumbs/04.jpg",  // Replace with your image 4
-            "images/thumbs/05.jpg",  // Replace with your image 5
-            "images/thumbs/06.jpg"   // Replace with your image 6
+            "images/footer/01.jpg",  // Replace with your footer image 1
+            "images/footer/02.jpg",  // Replace with your footer image 2
+            "images/footer/03.jpg",  // Replace with your footer image 3
+            "images/footer/04.jpg",  // Replace with your footer image 4
+            "images/footer/05.jpg",  // Replace with your footer image 5
+            "images/footer/06.jpg"   // Replace with your footer image 6
         ]
     },
 

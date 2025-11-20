@@ -22,8 +22,8 @@ Simply update the `config.js` file - all your content is in ONE place with clear
 | **FILM Fallback Image** | 16:9 (Landscape) | 1920x1080px+ | JPG/PNG | `images/fulls/` |
 | **GEARS Fallback Image** | 16:9 (Landscape) | 1920x1080px+ | JPG/PNG | `images/fulls/` |
 | **Profile Photo** (Introduction) | 2:3 (Portrait) | 800x1200px | JPG/PNG | `images/fulls/` |
-| **Brand Logos** (Tools Section) | 1:1 (Square) | 400x400px | PNG (transparent) | `images/thumbs/` |
-| **Footer Images** | Flexible | 400x600px | JPG/PNG | `images/thumbs/` |
+| **Brand Logos** (Tools Powered By) | 1:1 (Square) | 400x400px | PNG (transparent) | `images/thumbs/` |
+| **Footer Images** (Portfolio Grid) | Flexible | 400x600px | JPG/PNG | `images/footer/` |
 | **YouTube Thumbnails** | 16:9 | Auto-loaded | - | - |
 
 **💡 Quick Tips:**
@@ -78,15 +78,16 @@ If you need to make structural changes or prefer manual editing, you can still u
 
 **Heading:** Line 781 - "Assets, films and tools powered by"
 
-**Brand Logos (6 images):**
-1. Line 785 - `images/thumbs/01.jpg`
-2. Line 786 - `images/thumbs/02.jpg`
-3. Line 787 - `images/thumbs/03.jpg`
-4. Line 788 - `images/thumbs/04.jpg`
-5. Line 789 - `images/thumbs/05.jpg`
-6. Line 790 - `images/thumbs/06.jpg`
+**Brand Logos (6 PNG images):**
+**Note:** These are separate from footer images
+1. Line 785 - `images/thumbs/01.png`
+2. Line 786 - `images/thumbs/02.png`
+3. Line 787 - `images/thumbs/03.png`
+4. Line 788 - `images/thumbs/04.png`
+5. Line 789 - `images/thumbs/05.png`
+6. Line 790 - `images/thumbs/06.png`
 
-**To Update:** Replace image paths with your brand logo files.
+**To Update:** Replace image paths with your brand logo files in PNG format.
 
 ---
 
@@ -189,12 +190,13 @@ Copy lines 224-230 (one complete video card) and paste below, then update the vi
   - Line 844 - Behance: `https://behance.net/yourhandle`
 
 ### Footer Image Grid (6 vertical images):
-- Line 851 - Image 1: `images/thumbs/01.jpg`
-- Line 852 - Image 2: `images/thumbs/02.jpg`
-- Line 853 - Image 3: `images/thumbs/03.jpg`
-- Line 854 - Image 4: `images/thumbs/04.jpg`
-- Line 855 - Image 5: `images/thumbs/05.jpg`
-- Line 856 - Image 6: `images/thumbs/06.jpg`
+**Note:** Footer images are now separate from brand logos in the Tools section
+- Line 851 - Image 1: `images/footer/01.jpg`
+- Line 852 - Image 2: `images/footer/02.jpg`
+- Line 853 - Image 3: `images/footer/03.jpg`
+- Line 854 - Image 4: `images/footer/04.jpg`
+- Line 855 - Image 5: `images/footer/05.jpg`
+- Line 856 - Image 6: `images/footer/06.jpg`
 
 ### Footer Handle:
 - Line 860 - "@LipuHossain"
@@ -229,20 +231,28 @@ basic-personal-website/
 │   │   ├── film-bg.mp4   (FILM section background video)
 │   │   └── gears-bg.mp4  (GEARS section background video)
 │   │
-│   └── thumbs/         (Smaller images, logos, thumbnails)
-│       ├── 01.jpg     (Brand logo or footer image 1)
-│       ├── 02.jpg     (Brand logo or footer image 2)
-│       ├── 03.jpg     (Brand logo or footer image 3)
-│       ├── 04.jpg     (Brand logo or footer image 4)
-│       ├── 05.jpg     (Brand logo or footer image 5)
-│       └── 06.jpg     (Brand logo or footer image 6)
+│   ├── thumbs/         (Brand logos for "Tools Powered By" section)
+│   │   ├── 01.png     (Brand logo 1)
+│   │   ├── 02.png     (Brand logo 2)
+│   │   ├── 03.png     (Brand logo 3)
+│   │   ├── 04.png     (Brand logo 4)
+│   │   ├── 05.png     (Brand logo 5)
+│   │   └── 06.png     (Brand logo 6)
+│   │
+│   └── footer/         (Footer portfolio images - separate from brand logos)
+│       ├── 01.jpg     (Footer image 1)
+│       ├── 02.jpg     (Footer image 2)
+│       ├── 03.jpg     (Footer image 3)
+│       ├── 04.jpg     (Footer image 4)
+│       ├── 05.jpg     (Footer image 5)
+│       └── 06.jpg     (Footer image 6)
 │
 └── assets/
     ├── css/
     └── js/
 ```
 
-**Note:** The `images/videos/` folder has been created for you!
+**Note:** The `images/videos/` and `images/footer/` folders have been created for you!
 
 ---
 
@@ -255,10 +265,19 @@ basic-personal-website/
    - `index.html` (scrolling section - lines 800-809)
    - `portfolio.html` (grid section - add new card)
 
-### To Update Brand Logos:
+### To Update Brand Logos (Tools Powered By Section):
 1. Add your logo images to `images/thumbs/` folder
-2. Update paths in `index.html` lines 785-790
-3. Recommended size: 400x400px PNG with transparent background
+2. Use PNG format with transparent background
+3. Update paths in `index.html` lines 785-790
+4. Also update `config.js` toolsPoweredBy.logos array
+5. Recommended size: 400x400px PNG with transparent background
+
+### To Update Footer Images:
+1. Add your images to `images/footer/` folder (separate from brand logos)
+2. Update paths in `index.html` lines ~1359-1364
+3. Also update `config.js` footer.imageGrid array
+4. Recommended size: 400x600px or similar
+5. These are independent from the brand logos
 
 ### To Update Profile Photo:
 1. Add your photo to `images/fulls/` folder

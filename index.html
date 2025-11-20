@@ -645,8 +645,8 @@
         .footer-images {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            width: 400px;
+            gap: 30px;
+            width: 450px;
         }
 
         .footer-images img {
@@ -1203,18 +1203,18 @@
         <h2>Assets, films and tools powered by</h2>
         <div class="scroll-container">
             <div class="scroll-content" id="scrollContent">
-                <img src="images/thumbs/01.jpg" alt="Brand 1">
-                <img src="images/thumbs/02.jpg" alt="Brand 2">
-                <img src="images/thumbs/03.jpg" alt="Brand 3">
-                <img src="images/thumbs/04.jpg" alt="Brand 4">
-                <img src="images/thumbs/05.jpg" alt="Brand 5">
-                <img src="images/thumbs/06.jpg" alt="Brand 6">
-                <img src="images/thumbs/01.jpg" alt="Brand 1">
-                <img src="images/thumbs/02.jpg" alt="Brand 2">
-                <img src="images/thumbs/03.jpg" alt="Brand 3">
-                <img src="images/thumbs/04.jpg" alt="Brand 4">
-                <img src="images/thumbs/05.jpg" alt="Brand 5">
-                <img src="images/thumbs/06.jpg" alt="Brand 6">
+                <img src="images/thumbs/01.png" alt="Brand 1">
+                <img src="images/thumbs/02.png" alt="Brand 2">
+                <img src="images/thumbs/03.png" alt="Brand 3">
+                <img src="images/thumbs/04.png" alt="Brand 4">
+                <img src="images/thumbs/05.png" alt="Brand 5">
+                <img src="images/thumbs/06.png" alt="Brand 6">
+                <img src="images/thumbs/01.png" alt="Brand 1">
+                <img src="images/thumbs/02.png" alt="Brand 2">
+                <img src="images/thumbs/03.png" alt="Brand 3">
+                <img src="images/thumbs/04.png" alt="Brand 4">
+                <img src="images/thumbs/05.png" alt="Brand 5">
+                <img src="images/thumbs/06.png" alt="Brand 6">
             </div>
         </div>
     </section>
@@ -1356,12 +1356,12 @@
 
             <!-- Image Grid -->
             <div class="footer-images">
-                <img src="images/thumbs/01.jpg" alt="Portfolio 1">
-                <img src="images/thumbs/02.jpg" alt="Portfolio 2">
-                <img src="images/thumbs/03.jpg" alt="Portfolio 3">
-                <img src="images/thumbs/04.jpg" alt="Portfolio 4">
-                <img src="images/thumbs/05.jpg" alt="Portfolio 5">
-                <img src="images/thumbs/06.jpg" alt="Portfolio 6">
+                <img src="images/footer/01.jpg" alt="Portfolio 1">
+                <img src="images/footer/02.jpg" alt="Portfolio 2">
+                <img src="images/footer/03.jpg" alt="Portfolio 3">
+                <img src="images/footer/04.jpg" alt="Portfolio 4">
+                <img src="images/footer/05.jpg" alt="Portfolio 5">
+                <img src="images/footer/06.jpg" alt="Portfolio 6">
             </div>
         </div>
 
@@ -1478,46 +1478,34 @@
             });
         });
 
-        // Make entire FILMS and GEARS sections clickable on mobile
-        function makeFilmSectionsClickable() {
-            const filmSection = document.querySelector('.section-film');
-            const gearsSection = document.querySelector('.section-gears');
+        // Make all sections with explore buttons clickable (mobile and desktop)
+        function makeAllSectionsClickable() {
+            // Select all hero sections and product grid items
+            const clickableSections = document.querySelectorAll('.hero-section, .product-grid-item');
 
-            if (window.innerWidth <= 968) {
-                // Add cursor pointer on mobile
-                if (filmSection) {
-                    filmSection.style.cursor = 'pointer';
-                    filmSection.addEventListener('click', function(e) {
+            clickableSections.forEach(section => {
+                const exploreLink = section.querySelector('.explore-btn');
+
+                if (exploreLink && exploreLink.getAttribute('href')) {
+                    // Add cursor pointer
+                    section.style.cursor = 'pointer';
+
+                    // Add click event
+                    section.addEventListener('click', function(e) {
                         // Don't trigger if clicking the explore button directly
-                        if (!e.target.classList.contains('explore-btn')) {
-                            const exploreLink = this.querySelector('.explore-btn');
-                            if (exploreLink) {
-                                window.location.href = exploreLink.getAttribute('href');
+                        if (!e.target.classList.contains('explore-btn') && !e.target.closest('.explore-btn')) {
+                            const link = this.querySelector('.explore-btn');
+                            if (link) {
+                                window.location.href = link.getAttribute('href');
                             }
                         }
                     });
                 }
-
-                if (gearsSection) {
-                    gearsSection.style.cursor = 'pointer';
-                    gearsSection.addEventListener('click', function(e) {
-                        // Don't trigger if clicking the explore button directly
-                        if (!e.target.classList.contains('explore-btn')) {
-                            const exploreLink = this.querySelector('.explore-btn');
-                            if (exploreLink) {
-                                window.location.href = exploreLink.getAttribute('href');
-                            }
-                        }
-                    });
-                }
-            }
+            });
         }
 
         // Call on load
-        makeFilmSectionsClickable();
-
-        // Recalculate on window resize
-        window.addEventListener('resize', makeFilmSectionsClickable);
+        makeAllSectionsClickable();
     </script>
 </body>
 </html>

@@ -28,9 +28,7 @@ const websiteConfig = {
             { text: "HOME", url: "index.html" },
             { text: "COLOR", url: "color.html" },
             { text: "SFX", url: "sfx.html" },
-            { text: "TOOLS", url: "tools.html" },
-            { text: "PRODUCT", url: "product.html" },
-            { text: "GEARS", url: "gears.html" }
+            { text: "TOOLS", url: "tools.html" }
         ]
     },
 

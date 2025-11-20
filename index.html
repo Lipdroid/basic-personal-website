@@ -1473,6 +1473,47 @@
                 drawerOverlay.classList.remove('active');
             });
         });
+
+        // Make entire FILMS and GEARS sections clickable on mobile
+        function makeFilmSectionsClickable() {
+            const filmSection = document.querySelector('.section-film');
+            const gearsSection = document.querySelector('.section-gears');
+
+            if (window.innerWidth <= 968) {
+                // Add cursor pointer on mobile
+                if (filmSection) {
+                    filmSection.style.cursor = 'pointer';
+                    filmSection.addEventListener('click', function(e) {
+                        // Don't trigger if clicking the explore button directly
+                        if (!e.target.classList.contains('explore-btn')) {
+                            const exploreLink = this.querySelector('.explore-btn');
+                            if (exploreLink) {
+                                window.location.href = exploreLink.getAttribute('href');
+                            }
+                        }
+                    });
+                }
+
+                if (gearsSection) {
+                    gearsSection.style.cursor = 'pointer';
+                    gearsSection.addEventListener('click', function(e) {
+                        // Don't trigger if clicking the explore button directly
+                        if (!e.target.classList.contains('explore-btn')) {
+                            const exploreLink = this.querySelector('.explore-btn');
+                            if (exploreLink) {
+                                window.location.href = exploreLink.getAttribute('href');
+                            }
+                        }
+                    });
+                }
+            }
+        }
+
+        // Call on load
+        makeFilmSectionsClickable();
+
+        // Recalculate on window resize
+        window.addEventListener('resize', makeFilmSectionsClickable);
     </script>
 </body>
 </html>

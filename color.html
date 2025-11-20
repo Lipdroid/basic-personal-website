@@ -70,6 +70,105 @@
             opacity: 0.7;
         }
 
+        /* Hamburger Menu Icon */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1002;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background: white;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+            display: block;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(7px, 7px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Mobile Drawer */
+        .mobile-drawer {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 70%;
+            max-width: 300px;
+            height: 100vh;
+            background: rgba(20, 20, 20, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+            transition: right 0.4s ease;
+            padding: 100px 40px 40px;
+        }
+
+        .mobile-drawer.active {
+            right: 0;
+        }
+
+        .mobile-drawer ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .mobile-drawer ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            display: block;
+            padding: 10px 0;
+        }
+
+        .mobile-drawer ul li a:hover {
+            opacity: 0.7;
+            transform: translateX(-5px);
+        }
+
+        /* Overlay for drawer */
+        .drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+
+        .drawer-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
         .hero-section {
             height: 60vh;
             background-image: url('images/fulls/02.jpg');
@@ -179,9 +278,82 @@
                 font-size: 2rem;
             }
         }
+
+        @media screen and (max-width: 480px) {
+            /* Hide desktop nav menu on mobile */
+            .nav-menu {
+                display: none;
+            }
+
+            /* Show hamburger on mobile */
+            .hamburger {
+                display: flex !important;
+            }
+
+            /* Adjust nav bar on mobile - remove glassmorphism */
+            .nav-bar {
+                left: 0 !important;
+                right: 0 !important;
+                top: 0 !important;
+                padding: 20px 25px !important;
+                background: transparent !important;
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+                border: none !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                display: flex !important;
+                justify-content: space-between !important;
+                align-items: flex-start !important;
+                width: 100% !important;
+            }
+
+            .nav-bar .logo {
+                font-size: 1rem !important;
+                margin: 0 !important;
+                margin-right: auto !important;
+                padding: 0 !important;
+                line-height: 1 !important;
+                display: block !important;
+            }
+
+            .hamburger {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 4px !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                margin-left: auto !important;
+                height: 14px !important;
+                width: 25px !important;
+                justify-content: space-between !important;
+                align-items: stretch !important;
+                flex-shrink: 0 !important;
+            }
+
+            .hamburger span {
+                margin: 0 !important;
+                padding: 0 !important;
+                width: 100% !important;
+                height: 2px !important;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Drawer Overlay -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="color.html">COLOR</a></li>
+            <li><a href="sfx.html">SFX</a></li>
+            <li><a href="tools.html">TOOLS</a></li>
+        </ul>
+    </div>
+
     <!-- Navigation Bar -->
     <nav class="nav-bar">
         <a href="index.html" class="logo">LipuHossain</a>
@@ -191,6 +363,11 @@
             <li><a href="sfx.html">SFX</a></li>
             <li><a href="tools.html">TOOLS</a></li>
         </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </nav>
 
     <div class="hero-section">
@@ -242,5 +419,35 @@
 
     <!-- Load website configuration -->
     <script src="config.js"></script>
+
+    <script>
+        // Mobile Drawer functionality
+        const hamburger = document.getElementById('hamburger');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        const drawerOverlay = document.getElementById('drawerOverlay');
+
+        // Toggle drawer
+        function toggleDrawer() {
+            hamburger.classList.toggle('active');
+            mobileDrawer.classList.toggle('active');
+            drawerOverlay.classList.toggle('active');
+        }
+
+        // Open/close drawer on hamburger click
+        hamburger.addEventListener('click', toggleDrawer);
+
+        // Close drawer on overlay click
+        drawerOverlay.addEventListener('click', toggleDrawer);
+
+        // Close drawer when clicking a link
+        const drawerLinks = mobileDrawer.querySelectorAll('a');
+        drawerLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileDrawer.classList.remove('active');
+                drawerOverlay.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>

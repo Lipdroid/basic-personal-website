@@ -1284,8 +1284,7 @@
     <!-- Film Section - Full Width Hero with Video Background -->
     <div class="film-section-wrapper">
         <div class="hero-section section-film">
-            <video class="video-background" autoplay muted loop playsinline>
-                <source src="images/videos/film-bg.mp4" type="video/mp4">
+            <video class="video-background" src="images/videos/film-bg.mov" autoplay muted loop playsinline webkit-playsinline preload="auto">
                 Your browser does not support the video tag.
             </video>
             <div class="hero-content">
@@ -1299,8 +1298,7 @@
     <!-- Gears Section - Full Width Hero with Video Background -->
     <div class="film-section-wrapper">
         <div class="hero-section section-gears">
-            <video class="video-background" autoplay muted loop playsinline>
-                <source src="images/videos/gears-bg.mp4" type="video/mp4">
+            <video class="video-background" src="images/videos/gears-bg.mp4" autoplay muted loop playsinline webkit-playsinline preload="auto">
                 Your browser does not support the video tag.
             </video>
             <div class="hero-content">
@@ -1560,6 +1558,128 @@
                 navBar.style.transform = 'translateY(0)';
             }
         });
+
+        // Fix video playback on mobile devices
+        function initVideoPlayback() {
+            const videos = document.querySelectorAll('.video-background');
+
+            videos.forEach(video => {
+                // Add webkit-playsinline for older iOS devices
+                video.setAttribute('webkit-playsinline', 'true');
+
+                // Force video to load
+                video.load();
+
+                // Ensure video loops on mobile by manually handling the ended event
+                video.addEventListener('ended', function() {
+                    this.currentTime = 0;
+                    this.play().catch(e => {
+                        // Silently handle play error after loop
+                    });
+                });
+
+                // Handle video loaded event
+                video.addEventListener('loadeddata', function() {
+                    console.log('Video loaded:', this.src);
+                });
+
+                // Handle video errors
+                video.addEventListener('error', function(e) {
+                    console.error('Video error:', this.src, e);
+                });
+
+                // Handle when video can play
+                video.addEventListener('canplay', function() {
+                    console.log('Video can play:', this.src);
+                });
+
+                // Mark that we're attempting initial play
+                video.dataset.initializing = 'true';
+
+                // Wait a moment for video to start loading, then attempt to play
+                setTimeout(() => {
+                    const playPromise = video.play();
+
+                    if (playPromise !== undefined) {
+                        playPromise.then(() => {
+                            // Video started playing successfully
+                            console.log('Video playing:', video.src);
+                            delete video.dataset.initializing;
+                        }).catch(error => {
+                            // Auto-play was prevented, try playing on user interaction
+                            console.log('Autoplay prevented, waiting for user interaction');
+                            delete video.dataset.initializing;
+
+                            // Play video on first touch/click
+                            const playOnInteraction = () => {
+                                console.log('Playing on user interaction');
+                                video.play();
+                            };
+
+                            document.addEventListener('touchstart', playOnInteraction, { once: true });
+                            document.addEventListener('click', playOnInteraction, { once: true });
+                        });
+                    }
+                }, 100);
+            });
+        }
+
+        // Use Intersection Observer to play videos when they're visible
+        function setupVideoObserver() {
+            const videos = document.querySelectorAll('.video-background');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const videoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const video = entry.target;
+
+                    // Don't interfere with initial playback
+                    if (video.dataset.initializing === 'true') {
+                        return;
+                    }
+
+                    if (entry.isIntersecting) {
+                        // Video is in viewport, try to play if paused
+                        if (video.paused) {
+                            video.play().catch(e => {
+                                // Silently handle play failures
+                            });
+                        }
+                    } else {
+                        // Video is out of viewport, pause only if playing
+                        if (!video.paused) {
+                            video.pause();
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            videos.forEach(video => {
+                videoObserver.observe(video);
+            });
+        }
+
+        // Initialize video playback when page loads
+        window.addEventListener('load', () => {
+            initVideoPlayback();
+            // Delay observer setup to avoid race condition
+            setTimeout(() => {
+                setupVideoObserver();
+            }, 500);
+        });
+
+        // Also try to init videos immediately in case load event already fired
+        if (document.readyState === 'complete') {
+            initVideoPlayback();
+            setTimeout(() => {
+                setupVideoObserver();
+            }, 500);
+        }
     </script>
 </body>
 </html>

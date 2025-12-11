@@ -530,7 +530,7 @@
             font-size: 0.7rem;
             font-weight: 300;
             letter-spacing: 0.3em;
-            color: rgba(255, 255, 255, 0.3);
+            color: #ff0000;
             text-transform: uppercase;
             display: block;
             margin-bottom: 10px;
@@ -544,7 +544,7 @@
             font-size: 0.55rem;
             font-weight: 300;
             letter-spacing: 0.3em;
-            color: rgba(255, 255, 255, 0.15);
+            color: #ff0000;
             white-space: nowrap;
             pointer-events: none;
             writing-mode: vertical-rl;
@@ -554,7 +554,7 @@
         .jp-note {
             font-size: 0.65rem;
             font-weight: 300;
-            color: rgba(255, 255, 255, 0.25);
+            color: #ff0000;
             font-style: italic;
             display: inline;
             margin-left: 8px;
@@ -928,44 +928,9 @@
                 padding: 60px 0;
             }
 
-            .hotspot-dot {
-                width: 20px;
-                height: 20px;
-            }
-
-            .hotspot-dot::before {
-                font-size: 14px;
-            }
-
-            .product-popup {
-                width: 280px;
-                position: fixed;
-                bottom: 20px !important;
-                left: 50%;
-                transform: translateX(-50%);
-                z-index: 1000;
-            }
-
-            .hotspot.active .product-popup {
-                opacity: 1;
-                visibility: visible;
-                pointer-events: auto;
-            }
-
-            .popup-image {
-                height: 150px;
-            }
-
-            .popup-content {
-                padding: 15px;
-            }
-
-            .popup-content h4 {
-                font-size: 1rem;
-            }
-
-            .product-price {
-                font-size: 1.1rem;
+            /* Hide hotspots on mobile */
+            .hotspot {
+                display: none !important;
             }
         }
     </style>

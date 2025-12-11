@@ -16,6 +16,66 @@
             background: #0a0a0a;
             color: #ffffff;
             overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Decorative Background Japanese Text */
+        body::before {
+            content: 'ワークスペース';
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-5deg);
+            font-size: 18rem;
+            font-weight: 900;
+            font-family: 'Arial Black', 'Impact', sans-serif;
+            color: rgba(255, 0, 0, 0.02);
+            z-index: 0;
+            pointer-events: none;
+            letter-spacing: -0.05em;
+        }
+
+        body::after {
+            content: '制作';
+            position: fixed;
+            top: 20%;
+            left: 10%;
+            font-size: 10rem;
+            font-weight: 900;
+            font-family: 'Helvetica Neue', 'Arial', sans-serif;
+            color: rgba(255, 0, 0, 0.025);
+            z-index: 0;
+            pointer-events: none;
+            letter-spacing: -0.05em;
+        }
+
+        /* Additional decorative text elements */
+        .hero-section::after {
+            content: '撮影';
+            position: absolute;
+            bottom: 10%;
+            right: 5%;
+            font-size: 14rem;
+            font-weight: 700;
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            color: rgba(255, 0, 0, 0.03);
+            z-index: 0;
+            pointer-events: none;
+            transform: rotate(-10deg);
+        }
+
+        .full-width-section::before {
+            content: '映像';
+            position: absolute;
+            top: 10%;
+            left: 5%;
+            font-size: 8rem;
+            font-weight: 800;
+            font-family: 'Courier New', monospace;
+            color: rgba(255, 0, 0, 0.04);
+            z-index: 0;
+            pointer-events: none;
+            letter-spacing: 0.1em;
         }
 
         /* Navigation Bar */
@@ -183,10 +243,11 @@
 
         .hero-content h1 {
             font-size: 6rem;
-            font-weight: 700;
+            font-weight: 900;
+            font-family: 'Impact', 'Arial Black', 'Helvetica Neue', sans-serif;
             letter-spacing: 0.05em;
             margin-bottom: 20px;
-            color: white;
+            color: var(--accent-color, #ff0000);
         }
 
         .hero-content p {
@@ -259,6 +320,39 @@
             z-index: 100;
         }
 
+        /* Decorative Japanese Background Text */
+        .magazine-container::before {
+            content: 'スタジオ';
+            position: absolute;
+            top: 200px;
+            right: -100px;
+            font-size: 15rem;
+            font-weight: 900;
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            color: rgba(255, 0, 0, 0.03);
+            z-index: -1;
+            pointer-events: none;
+            letter-spacing: -0.05em;
+            line-height: 0.8;
+            transform: rotate(5deg);
+        }
+
+        .magazine-container::after {
+            content: 'クリエイティブ';
+            position: absolute;
+            bottom: 300px;
+            left: -150px;
+            font-size: 12rem;
+            font-weight: 900;
+            font-family: 'Georgia', serif;
+            color: rgba(255, 0, 0, 0.04);
+            z-index: -1;
+            pointer-events: none;
+            letter-spacing: -0.05em;
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+        }
+
         /* Spread styles - Magazine two-page layouts */
         .spread {
             background: #1a1a1a;
@@ -270,6 +364,80 @@
             opacity: 0;
             transform: translateY(30px);
             animation: fadeInUp 0.8s ease forwards;
+            position: relative;
+        }
+
+        /* More decorative text on spreads */
+        .spread:nth-child(1)::before {
+            content: '音響';
+            position: absolute;
+            top: -80px;
+            left: -120px;
+            font-size: 16rem;
+            font-weight: 800;
+            font-family: 'Trebuchet MS', sans-serif;
+            color: rgba(255, 0, 0, 0.025);
+            z-index: -1;
+            pointer-events: none;
+            transform: rotate(-15deg);
+        }
+
+        .spread:nth-child(2)::after {
+            content: 'デザイン';
+            position: absolute;
+            bottom: -100px;
+            right: -100px;
+            font-size: 10rem;
+            font-weight: 700;
+            font-family: 'Verdana', sans-serif;
+            color: rgba(255, 0, 0, 0.03);
+            z-index: -1;
+            pointer-events: none;
+            letter-spacing: 0.2em;
+        }
+
+        .spread:nth-child(3)::before {
+            content: '機材';
+            position: absolute;
+            top: 50%;
+            right: -150px;
+            font-size: 13rem;
+            font-weight: 900;
+            font-family: 'Courier New', monospace;
+            color: rgba(255, 0, 0, 0.02);
+            z-index: -1;
+            pointer-events: none;
+            transform: translateY(-50%) rotate(90deg);
+            writing-mode: vertical-rl;
+        }
+
+        .spread:nth-child(4)::after {
+            content: 'プロダクション';
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 7rem;
+            font-weight: 800;
+            font-family: 'Tahoma', sans-serif;
+            color: rgba(255, 0, 0, 0.035);
+            z-index: -1;
+            pointer-events: none;
+            letter-spacing: 0.3em;
+        }
+
+        .spread:nth-child(5)::before {
+            content: '編集';
+            position: absolute;
+            bottom: -60px;
+            left: -80px;
+            font-size: 11rem;
+            font-weight: 700;
+            font-family: 'Arial Black', sans-serif;
+            color: rgba(255, 0, 0, 0.028);
+            z-index: -1;
+            pointer-events: none;
+            transform: rotate(12deg);
         }
 
         .spread:nth-child(1) { animation-delay: 0.1s; }
@@ -518,10 +686,12 @@
         .grid-item h2,
         .text-item h2 {
             font-size: 3rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
+            font-weight: 900;
+            font-family: 'Impact', 'Arial Black', 'Helvetica Neue', sans-serif;
+            letter-spacing: 0.05em;
             margin-bottom: 20px;
             line-height: 1.1;
+            color: var(--accent-color, #ff0000);
             position: relative;
         }
 
@@ -530,7 +700,7 @@
             font-size: 0.7rem;
             font-weight: 300;
             letter-spacing: 0.3em;
-            color: #ff0000;
+            color: rgba(255, 255, 255, 0.3);
             text-transform: uppercase;
             display: block;
             margin-bottom: 10px;
@@ -544,7 +714,7 @@
             font-size: 0.55rem;
             font-weight: 300;
             letter-spacing: 0.3em;
-            color: #ff0000;
+            color: var(--japanese-accent, #ff0000);
             white-space: nowrap;
             pointer-events: none;
             writing-mode: vertical-rl;
@@ -554,7 +724,7 @@
         .jp-note {
             font-size: 0.65rem;
             font-weight: 300;
-            color: #ff0000;
+            color: var(--japanese-accent, #ff0000);
             font-style: italic;
             display: inline;
             margin-left: 8px;
@@ -1153,6 +1323,20 @@
 
     <!-- Load website configuration -->
     <script src="config.js"></script>
+
+    <!-- Apply color theme from config -->
+    <script>
+        // Apply colors from config as CSS variables
+        if (websiteConfig && websiteConfig.colors) {
+            const root = document.documentElement;
+            root.style.setProperty('--accent-color', websiteConfig.colors.accentColor);
+            root.style.setProperty('--text-color', websiteConfig.colors.textColor);
+            root.style.setProperty('--text-color-secondary', websiteConfig.colors.textColorSecondary);
+            root.style.setProperty('--bg-color', websiteConfig.colors.backgroundColor);
+            root.style.setProperty('--bg-color-light', websiteConfig.colors.backgroundColorLight);
+            root.style.setProperty('--japanese-accent', websiteConfig.colors.japaneseAccent);
+        }
+    </script>
 
     <script>
         // Add product hotspots to all magazine spread images

@@ -20,6 +20,20 @@ const websiteConfig = {
 
 
     // ========================================
+    // COLOR THEME
+    // ========================================
+    // Change these colors to update the entire website theme
+    colors: {
+        accentColor: "#ff0000",           // Main accent color (used for titles, highlights)
+        textColor: "#ffffff",              // Primary text color
+        textColorSecondary: "rgba(255, 255, 255, 0.7)",  // Secondary text color (less prominent)
+        backgroundColor: "#0a0a0a",        // Main background color
+        backgroundColorLight: "#1a1a1a",   // Lighter background (for cards, sections)
+        japaneseAccent: "#ff0000"          // Color for Japanese accent text
+    },
+
+
+    // ========================================
     // NAVIGATION BAR
     // ========================================
     navigation: {
@@ -359,21 +373,25 @@ const websiteConfig = {
             {
                 url: "https://www.youtube.com/watch?v=lIxtuNBXcXE",
                 title: "Your Video Title 1",  // Add your video title here
+                description: "Add your video description here. This is a sample text that can be replaced with your actual video description from YouTube or custom text.",
                 videoId: "lIxtuNBXcXE"  // Automatically extracted from URL
             },
             {
                 url: "https://www.youtube.com/watch?v=40yqG6tCoFA",
                 title: "Your Video Title 2",
+                description: "Add your video description here. This is a sample text that can be replaced with your actual video description from YouTube or custom text.",
                 videoId: "40yqG6tCoFA"
             },
             {
                 url: "https://www.youtube.com/watch?v=k2IQ7eCrrVA",
                 title: "Your Video Title 3",
+                description: "Add your video description here. This is a sample text that can be replaced with your actual video description from YouTube or custom text.",
                 videoId: "k2IQ7eCrrVA"
             },
             {
                 url: "https://www.youtube.com/watch?v=xfxTbzdUTCo",
                 title: "Your Video Title 4",
+                description: "Add your video description here. This is a sample text that can be replaced with your actual video description from YouTube or custom text.",
                 videoId: "xfxTbzdUTCo"
             },
             // Add more videos below (up to 6 total)
@@ -1018,7 +1036,7 @@ function loadPortfolioGrid() {
             title.textContent = video.title;
 
             const description = document.createElement('p');
-            description.textContent = 'Click to watch on YouTube';
+            description.textContent = video.description || 'Add your video description here. This is a sample text that can be replaced with your actual video description from YouTube or custom text.';
 
             videoInfo.appendChild(title);
             videoInfo.appendChild(description);

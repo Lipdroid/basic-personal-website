@@ -178,15 +178,17 @@
         .portfolio-grid-section h1 {
             text-align: center;
             font-size: 3rem;
-            font-weight: 200;
-            letter-spacing: 0.2em;
+            font-weight: 900;
+            font-family: 'Impact', 'Arial Black', 'Helvetica Neue', sans-serif;
+            letter-spacing: 0.05em;
             text-transform: uppercase;
             margin-bottom: 80px;
+            color: var(--accent-color, #ff0000);
         }
 
         .video-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 40px;
             max-width: 1400px;
             margin: 0 auto;
@@ -199,20 +201,32 @@
             transition: all 0.3s ease;
             cursor: pointer;
             background: rgba(255, 255, 255, 0.05);
+            text-decoration: none !important;
+            color: inherit;
+        }
+
+        .video-card,
+        .video-card:link,
+        .video-card:visited,
+        .video-card:active {
+            text-decoration: none !important;
+            border-bottom: none !important;
         }
 
         .video-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            text-decoration: none !important;
+            border-bottom: none !important;
         }
 
         .video-card img {
             width: 100%;
-            height: 250px;
-            object-fit: cover;
+            aspect-ratio: 16 / 9;
+            object-fit: contain;
             object-position: center;
             display: block;
-            background: #1a1a1a;
+            background: #000;
         }
 
         .video-card::after {
@@ -237,9 +251,30 @@
         }
 
         .video-info h3 {
-            font-size: 1.2rem;
-            font-weight: 400;
+            font-size: 1.6rem;
+            font-weight: 900;
+            font-family: 'Impact', 'Arial Black', 'Helvetica Neue', sans-serif;
+            letter-spacing: 0.05em;
             margin-bottom: 10px;
+            color: var(--accent-color, #ff0000);
+            text-decoration: none;
+        }
+
+        .video-info h3 a,
+        .video-info h3 a:link,
+        .video-info h3 a:visited,
+        .video-info h3 a:active {
+            color: var(--accent-color, #ff0000) !important;
+            text-decoration: none !important;
+            border-bottom: none !important;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-info h3 a:hover {
+            opacity: 0.7;
+            color: var(--accent-color, #ff0000) !important;
+            text-decoration: none !important;
+            border-bottom: none !important;
         }
 
         .video-info p {
@@ -392,7 +427,7 @@
                 <img src="https://img.youtube.com/vi/lIxtuNBXcXE/maxresdefault.jpg" alt="Video 1">
                 <div class="video-info">
                     <h3>Your Video Title 1</h3>
-                    <p>Click to watch on YouTube</p>
+                    <p>Add your video description here. This is a sample text that can be replaced with your actual video description from YouTube or custom text.</p>
                 </div>
             </a>
 
@@ -401,7 +436,7 @@
                 <img src="https://img.youtube.com/vi/40yqG6tCoFA/maxresdefault.jpg" alt="Video 2">
                 <div class="video-info">
                     <h3>Your Video Title 2</h3>
-                    <p>Click to watch on YouTube</p>
+                    <p>Add your video description here. This is a sample text that can be replaced with your actual video description from YouTube or custom text.</p>
                 </div>
             </a>
 
@@ -410,7 +445,7 @@
                 <img src="https://img.youtube.com/vi/k2IQ7eCrrVA/maxresdefault.jpg" alt="Video 3">
                 <div class="video-info">
                     <h3>Your Video Title 3</h3>
-                    <p>Click to watch on YouTube</p>
+                    <p>Add your video description here. This is a sample text that can be replaced with your actual video description from YouTube or custom text.</p>
                 </div>
             </a>
 
@@ -419,7 +454,7 @@
                 <img src="https://img.youtube.com/vi/xfxTbzdUTCo/maxresdefault.jpg" alt="Video 4">
                 <div class="video-info">
                     <h3>Your Video Title 4</h3>
-                    <p>Click to watch on YouTube</p>
+                    <p>Add your video description here. This is a sample text that can be replaced with your actual video description from YouTube or custom text.</p>
                 </div>
             </a>
         </div>
@@ -427,6 +462,20 @@
 
     <!-- Load website configuration -->
     <script src="config.js"></script>
+
+    <!-- Apply color theme from config -->
+    <script>
+        // Apply colors from config as CSS variables
+        if (websiteConfig && websiteConfig.colors) {
+            const root = document.documentElement;
+            root.style.setProperty('--accent-color', websiteConfig.colors.accentColor);
+            root.style.setProperty('--text-color', websiteConfig.colors.textColor);
+            root.style.setProperty('--text-color-secondary', websiteConfig.colors.textColorSecondary);
+            root.style.setProperty('--bg-color', websiteConfig.colors.backgroundColor);
+            root.style.setProperty('--bg-color-light', websiteConfig.colors.backgroundColorLight);
+            root.style.setProperty('--japanese-accent', websiteConfig.colors.japaneseAccent);
+        }
+    </script>
 
     <script>
         // Mobile Drawer functionality

@@ -83,10 +83,12 @@
 
         .products-header h1 {
             font-size: 3rem;
-            font-weight: 200;
-            letter-spacing: 0.2em;
+            font-weight: 900;
+            font-family: 'Impact', 'Arial Black', 'Helvetica Neue', sans-serif;
+            letter-spacing: 0.05em;
             text-transform: uppercase;
             margin-bottom: 20px;
+            color: var(--accent-color, #ff0000);
         }
 
         .products-header p {
@@ -482,6 +484,20 @@
 
     <!-- Load website configuration -->
     <script src="config.js"></script>
+
+    <!-- Apply color theme from config -->
+    <script>
+        // Apply colors from config as CSS variables
+        if (websiteConfig && websiteConfig.colors) {
+            const root = document.documentElement;
+            root.style.setProperty('--accent-color', websiteConfig.colors.accentColor);
+            root.style.setProperty('--text-color', websiteConfig.colors.textColor);
+            root.style.setProperty('--text-color-secondary', websiteConfig.colors.textColorSecondary);
+            root.style.setProperty('--bg-color', websiteConfig.colors.backgroundColor);
+            root.style.setProperty('--bg-color-light', websiteConfig.colors.backgroundColorLight);
+            root.style.setProperty('--japanese-accent', websiteConfig.colors.japaneseAccent);
+        }
+    </script>
 
     <script>
         // Mobile Drawer functionality

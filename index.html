@@ -113,8 +113,9 @@
 
         .hero-content h1 {
             font-size: 4rem;
-            font-weight: 200;
-            letter-spacing: 0.3em;
+            font-weight: 900;
+            font-family: 'Impact', 'Arial Black', 'Helvetica Neue', sans-serif;
+            letter-spacing: 0.05em;
             text-transform: uppercase;
             margin-bottom: 20px;
             opacity: 0;
@@ -122,6 +123,7 @@
             animation-delay: 0.3s;
             transition: transform 0.3s ease;
             cursor: default;
+            color: var(--accent-color, #ff0000);
         }
 
         .hero-content h1:hover {
@@ -175,7 +177,7 @@
             text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
         }
 
-        /* Background images for each section */
+        /* Background images for hero sections */
         .section-sfx {
             background-image: url('images/fulls/01.jpg');
         }
@@ -186,6 +188,13 @@
 
         .section-tools {
             background-image: url('images/fulls/03.jpg');
+        }
+
+        /* Override: Keep SFX, COLOR, TOOLS titles white */
+        .section-sfx .hero-content h1,
+        .section-color .hero-content h1,
+        .section-tools .hero-content h1 {
+            color: white !important;
         }
 
         @keyframes fadeInUp {
@@ -203,7 +212,7 @@
         .intro-section {
             background: #0a0a0a;
             color: white;
-            padding: 120px 150px;
+            padding: 60px 150px;
             display: flex;
             align-items: center;
             gap: 100px;
@@ -226,7 +235,9 @@
 
         .intro-content h2 {
             font-size: 3rem;
-            font-weight: 600;
+            font-weight: 900;
+            font-family: 'Impact', 'Arial Black', 'Helvetica Neue', sans-serif;
+            letter-spacing: 0.05em;
             line-height: 1.2;
             margin-bottom: 40px;
             color: white;
@@ -373,13 +384,14 @@
             width: 100%;
         }
 
-        /* Film & Gears Section - Full Width Hero with Video Background */
+        /* Film, Gears & Studio Section - Full Width Hero with Video/Image Background */
         .film-section-wrapper {
             width: 100%;
             height: 60vh;
             min-height: 500px;
             position: relative;
             overflow: hidden;
+            margin-bottom: 0;
         }
 
         .section-film,
@@ -497,11 +509,13 @@
 
         .product-grid-item .hero-content h1 {
             font-size: 2.5rem;  /* Smaller titles */
-            font-weight: 200;
-            letter-spacing: 0.3em;
+            font-weight: 900;
+            font-family: 'Impact', 'Arial Black', 'Helvetica Neue', sans-serif;
+            letter-spacing: 0.05em;
             text-transform: uppercase;
             margin-bottom: 20px;
             transition: transform 0.3s ease;
+            color: white !important;
         }
 
         .product-grid-item .hero-content h1:hover {
@@ -584,7 +598,7 @@
         .tools-section {
             background: #0a0a0a;
             color: white;
-            padding: 80px 350px;
+            padding: 60px 350px;
             overflow: hidden;
         }
 
@@ -593,7 +607,7 @@
             font-size: 0.9rem;
             font-weight: 300;
             letter-spacing: 0.1em;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
             color: rgba(255, 255, 255, 0.7);
         }
 
@@ -649,7 +663,7 @@
         .footer-section {
             background: #0a0a0a;
             color: white;
-            padding: 80px 80px 40px;
+            padding: 60px 80px 40px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -1219,32 +1233,41 @@
         </div>
     </nav>
 
-    <!-- Hero Container -->
-    <div class="hero-container">
-        <!-- SFX Section -->
-        <div class="hero-section section-sfx">
+    <!-- Film Section - Full Width Hero with Video Background -->
+    <div class="film-section-wrapper">
+        <div class="hero-section section-film">
+            <video class="video-background" src="images/videos/film-bg.mov" autoplay muted loop playsinline webkit-playsinline preload="auto">
+                Your browser does not support the video tag.
+            </video>
             <div class="hero-content">
-                <h1>SFX</h1>
-                <p>Sound Design & Audio Engineering</p>
-                <a href="sfx.html" class="explore-btn">Explore</a>
+                <h1>FILMS</h1>
+                <p>Visual Storytelling & Cinematography</p>
+                <a href="portfolio.html" class="explore-btn">Explore</a>
             </div>
         </div>
+    </div>
 
-        <!-- COLOR Section -->
-        <div class="hero-section section-color">
+    <!-- Gears Section - Full Width Hero with Video Background -->
+    <div class="film-section-wrapper">
+        <div class="hero-section section-gears">
+            <video class="video-background" src="images/videos/gears-bg.mp4" autoplay muted loop playsinline webkit-playsinline preload="auto">
+                Your browser does not support the video tag.
+            </video>
             <div class="hero-content">
-                <h1>COLOR</h1>
-                <p>Visual Arts & Color Grading</p>
-                <a href="color.html" class="explore-btn">Explore</a>
+                <h1>GEARS I USE</h1>
+                <p>Equipment & Technology</p>
+                <a href="gears.html" class="explore-btn">Explore</a>
             </div>
         </div>
+    </div>
 
-        <!-- TOOLS Section -->
-        <div class="hero-section section-tools">
+    <!-- My Studio Section - Full Width Hero with Image Background -->
+    <div class="film-section-wrapper">
+        <div class="hero-section section-studio">
             <div class="hero-content">
-                <h1>TOOLS</h1>
-                <p>Creative Technology & Innovation</p>
-                <a href="tools.html" class="explore-btn">Explore</a>
+                <h1>MY STUDIO</h1>
+                <p>Creative Workspace & Setup</p>
+                <a href="studio.html" class="explore-btn">Explore</a>
             </div>
         </div>
     </div>
@@ -1307,77 +1330,35 @@
         </div>
     </div>
 
-    <!-- Film Section - Full Width Hero with Video Background -->
-    <div class="film-section-wrapper">
-        <div class="hero-section section-film">
-            <video class="video-background" src="images/videos/film-bg.mov" autoplay muted loop playsinline webkit-playsinline preload="auto">
-                Your browser does not support the video tag.
-            </video>
+    <!-- Hero Container - SFX, COLOR, TOOLS -->
+    <div class="hero-container">
+        <!-- SFX Section -->
+        <div class="hero-section section-sfx">
             <div class="hero-content">
-                <h1>FILMS</h1>
-                <p>Visual Storytelling & Cinematography</p>
-                <a href="portfolio.html" class="explore-btn">Explore</a>
+                <h1>SFX</h1>
+                <p>Sound Design & Audio Engineering</p>
+                <a href="sfx.html" class="explore-btn">Explore</a>
+            </div>
+        </div>
+
+        <!-- COLOR Section -->
+        <div class="hero-section section-color">
+            <div class="hero-content">
+                <h1>COLOR</h1>
+                <p>Visual Arts & Color Grading</p>
+                <a href="color.html" class="explore-btn">Explore</a>
+            </div>
+        </div>
+
+        <!-- TOOLS Section -->
+        <div class="hero-section section-tools">
+            <div class="hero-content">
+                <h1>TOOLS</h1>
+                <p>Creative Technology & Innovation</p>
+                <a href="tools.html" class="explore-btn">Explore</a>
             </div>
         </div>
     </div>
-
-    <!-- Gears Section - Full Width Hero with Video Background -->
-    <div class="film-section-wrapper">
-        <div class="hero-section section-gears">
-            <video class="video-background" src="images/videos/gears-bg.mp4" autoplay muted loop playsinline webkit-playsinline preload="auto">
-                Your browser does not support the video tag.
-            </video>
-            <div class="hero-content">
-                <h1>GEARS I USE</h1>
-                <p>Equipment & Technology</p>
-                <a href="gears.html" class="explore-btn">Explore</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- My Studio Section - Full Width Hero with Image Background -->
-    <div class="film-section-wrapper">
-        <div class="hero-section section-studio">
-            <div class="hero-content">
-                <h1>MY STUDIO</h1>
-                <p>Creative Workspace & Setup</p>
-                <a href="studio.html" class="explore-btn">Explore</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Product Grid Section - Similar to Hero but with Margins -->
-    <section class="product-grid-section">
-        <h2 class="product-section-heading">PRODUCT</h2>
-        <div class="product-grid-container">
-            <!-- SFX -->
-            <div class="product-grid-item section-product-sfx">
-                <div class="hero-content">
-                    <h1>SFX</h1>
-                    <p>Sound Design & Audio Engineering</p>
-                    <a href="sfx.html" class="explore-btn">Explore</a>
-                </div>
-            </div>
-
-            <!-- COLOR -->
-            <div class="product-grid-item section-product-color">
-                <div class="hero-content">
-                    <h1>COLOR</h1>
-                    <p>Visual Arts & Color Grading</p>
-                    <a href="color.html" class="explore-btn">Explore</a>
-                </div>
-            </div>
-
-            <!-- TOOLS -->
-            <div class="product-grid-item section-product-tools">
-                <div class="hero-content">
-                    <h1>TOOLS</h1>
-                    <p>Creative Technology & Innovation</p>
-                    <a href="tools.html" class="explore-btn">Explore</a>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Footer/About Section -->
     <footer class="footer-section">
@@ -1433,6 +1414,20 @@
 
     <!-- Load website configuration -->
     <script src="config.js"></script>
+
+    <!-- Apply color theme from config -->
+    <script>
+        // Apply colors from config as CSS variables
+        if (websiteConfig && websiteConfig.colors) {
+            const root = document.documentElement;
+            root.style.setProperty('--accent-color', websiteConfig.colors.accentColor);
+            root.style.setProperty('--text-color', websiteConfig.colors.textColor);
+            root.style.setProperty('--text-color-secondary', websiteConfig.colors.textColorSecondary);
+            root.style.setProperty('--bg-color', websiteConfig.colors.backgroundColor);
+            root.style.setProperty('--bg-color-light', websiteConfig.colors.backgroundColorLight);
+            root.style.setProperty('--japanese-accent', websiteConfig.colors.japaneseAccent);
+        }
+    </script>
 
     <script>
         // Seamless infinite scroll for tools section

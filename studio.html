@@ -1,0 +1,1331 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>MY STUDIO - Creative Workspace & Setup</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Bar */
+        .nav-bar {
+            position: fixed;
+            top: 20px;
+            left: 80px;
+            right: 80px;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(20, 20, 20, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-bar .logo {
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-bar .logo:hover {
+            opacity: 0.7;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            opacity: 0.6;
+        }
+
+        /* Hamburger Menu Icon */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1002;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background: #ffffff;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(7px, 7px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Mobile Drawer */
+        .mobile-drawer {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 70%;
+            max-width: 300px;
+            height: 100vh;
+            background: rgba(20, 20, 20, 0.98);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+            transition: right 0.4s ease;
+            padding: 100px 40px 40px;
+        }
+
+        .mobile-drawer.active {
+            right: 0;
+        }
+
+        .mobile-drawer ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .mobile-drawer ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+
+        .drawer-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 70vh;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 80px;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.1));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 6rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            color: white;
+        }
+
+        /* Full-Width Image Sections */
+        .full-width-section {
+            width: 100%;
+            height: 70vh;
+            position: relative;
+            overflow: visible;
+            margin-bottom: 0;
+            z-index: 1;
+        }
+
+        .full-width-section img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .full-width-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.5), rgba(0,0,0,0.3));
+            z-index: 1;
+        }
+
+        .full-width-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 2;
+            padding: 60px 80px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
+        }
+
+        .full-width-content h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+            color: white;
+        }
+
+        .full-width-content p {
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 800px;
+        }
+
+        /* Magazine Layout Container */
+        .magazine-container {
+            max-width: 1400px;
+            margin: 80px auto;
+            padding: 0 50px;
+            overflow: visible;
+            position: relative;
+            z-index: 100;
+        }
+
+        /* Spread styles - Magazine two-page layouts */
+        .spread {
+            background: #1a1a1a;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            overflow: visible;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .spread:nth-child(1) { animation-delay: 0.1s; }
+        .spread:nth-child(2) { animation-delay: 0.2s; }
+        .spread:nth-child(3) { animation-delay: 0.3s; }
+        .spread:nth-child(4) { animation-delay: 0.4s; }
+        .spread:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Layout 1: Large image left, narrow text column right */
+        .layout-1 {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            min-height: 550px;
+        }
+
+        .layout-1 .image-section {
+            position: relative;
+            overflow: visible;
+        }
+
+        .layout-1 .image-section img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .layout-1 .text-section {
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Layout 2: Text left with small image, large image right */
+        .layout-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 550px;
+        }
+
+        .layout-2 .left-section {
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .layout-2 .left-section .small-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            margin-top: 30px;
+            border-radius: 4px;
+        }
+
+        .layout-2 .image-section {
+            position: relative;
+            overflow: visible;
+        }
+
+        .layout-2 .image-section img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Layout 3: Stacked images left, text right */
+        .layout-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 600px;
+            overflow: visible;
+        }
+
+        .layout-3 .image-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            background: #0a0a0a;
+            overflow: visible;
+        }
+
+        .layout-3 .image-stack img {
+            width: 100%;
+            height: 33.33%;
+            object-fit: cover;
+        }
+
+        .layout-3 .text-section {
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Layout 4: Mosaic grid - 3 images with text block */
+        .layout-4 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 2px;
+            background: #0a0a0a;
+            min-height: 600px;
+            overflow: visible;
+        }
+
+        .layout-4 .image-item {
+            position: relative;
+            overflow: visible;
+        }
+
+        .layout-4 .image-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .layout-4 .text-item {
+            background: #1a1a1a;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Layout 5: Full-width image top, text columns bottom */
+        .layout-5 {
+            display: grid;
+            grid-template-rows: 1.2fr 1fr;
+            min-height: 600px;
+            overflow: visible;
+        }
+
+        .layout-5 .image-section {
+            position: relative;
+            overflow: visible;
+        }
+
+        .layout-5 .image-section img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .layout-5 .text-section {
+            padding: 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        /* Layout 6: Asymmetric - small image top left, large text, small image bottom right */
+        .layout-6 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto 1fr;
+            gap: 2px;
+            background: #0a0a0a;
+            min-height: 600px;
+            overflow: visible;
+        }
+
+        .layout-6 .small-image-1 {
+            grid-column: 1;
+            grid-row: 1;
+            height: 250px;
+            overflow: visible;
+            position: relative;
+        }
+
+        .layout-6 .small-image-1 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .layout-6 .text-section {
+            grid-column: 1 / 3;
+            grid-row: 2;
+            background: #1a1a1a;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .layout-6 .small-image-2 {
+            grid-column: 2;
+            grid-row: 1;
+            height: 250px;
+            overflow: visible;
+            position: relative;
+        }
+
+        .layout-6 .small-image-2 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Layout 7: Large hero image with text overlay at bottom */
+        .layout-7 {
+            position: relative;
+            min-height: 650px;
+            overflow: visible;
+        }
+
+        .layout-7 .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .layout-7 .text-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0));
+            padding: 80px 60px 60px;
+            z-index: 2;
+        }
+
+        .layout-7 .text-overlay h2 {
+            color: white;
+        }
+
+        .layout-7 .text-overlay p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Typography */
+        .text-section h2,
+        .grid-item h2,
+        .text-item h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            position: relative;
+        }
+
+        /* Japanese accent text */
+        .jp-text {
+            font-size: 0.7rem;
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            color: rgba(255, 255, 255, 0.3);
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 10px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        .jp-side {
+            position: absolute;
+            right: -50px;
+            top: 10px;
+            font-size: 0.55rem;
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            color: rgba(255, 255, 255, 0.15);
+            white-space: nowrap;
+            pointer-events: none;
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+        }
+
+        .jp-note {
+            font-size: 0.65rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.25);
+            font-style: italic;
+            display: inline;
+            margin-left: 8px;
+        }
+
+        .text-section p {
+            position: relative;
+        }
+
+        .text-section h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            margin-top: 30px;
+        }
+
+        .text-section p,
+        .grid-item p,
+        .text-item p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 15px;
+        }
+
+        .text-section ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .text-section ul li {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.7);
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .text-section ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .column h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .column p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Accent elements */
+        .accent-line {
+            width: 60px;
+            height: 3px;
+            background: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        /* Interactive Product Showcase */
+        .interactive-showcase {
+            padding: 80px 0;
+        }
+
+        .showcase-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .showcase-header h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .showcase-header p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+        }
+
+        .interactive-image-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .base-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Hotspot Styling */
+        .hotspot {
+            position: absolute;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .hotspot-dot {
+            width: 22px;
+            height: 22px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hotspot-dot::before {
+            content: '+';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 16px;
+            font-weight: 300;
+            color: #0a0a0a;
+            line-height: 1;
+        }
+
+        .hotspot-pulse {
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: pulse 2s ease-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(2.5);
+                opacity: 0;
+            }
+        }
+
+        .hotspot:hover .hotspot-dot {
+            background: #ffffff;
+            transform: scale(1.1);
+            border-color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Product Popup */
+        .product-popup {
+            position: absolute;
+            bottom: 45px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 320px;
+            background: #1a1a1a;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+            z-index: 1002;
+        }
+
+        .hotspot:hover .product-popup {
+            opacity: 1;
+            visibility: visible;
+            bottom: 50px;
+            pointer-events: auto;
+        }
+
+        .product-popup::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid #1a1a1a;
+        }
+
+        .popup-image {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .popup-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .popup-content {
+            padding: 20px;
+        }
+
+        .popup-content h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .product-description {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .buy-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #ffffff;
+            color: #0a0a0a;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .buy-button:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateY(-2px);
+        }
+
+        .showcase-note {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 968px) {
+            .layout-1,
+            .layout-2,
+            .layout-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .layout-4 {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+
+            .layout-5 {
+                grid-template-rows: 1fr auto;
+            }
+
+            .layout-5 .text-section {
+                grid-template-columns: 1fr;
+            }
+
+            .layout-6 {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+
+            .layout-6 .small-image-1,
+            .layout-6 .small-image-2,
+            .layout-6 .text-section {
+                grid-column: 1;
+                grid-row: auto;
+            }
+
+            .text-section,
+            .left-section,
+            .text-item,
+            .text-overlay {
+                padding: 40px 30px;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .text-section h2,
+            .text-overlay h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex !important;
+            }
+
+            .nav-bar {
+                left: 20px;
+                right: 20px;
+                padding: 15px 25px;
+            }
+
+            .magazine-container {
+                padding: 0 20px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .text-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .full-width-content {
+                padding: 40px 30px;
+            }
+
+            .full-width-content h2 {
+                font-size: 1.2rem;
+            }
+
+            .full-width-content p {
+                font-size: 0.85rem;
+            }
+
+            .full-width-section {
+                height: 50vh;
+            }
+
+            /* Interactive Showcase Mobile */
+            .showcase-header h2 {
+                font-size: 2rem;
+            }
+
+            .showcase-header p {
+                font-size: 0.95rem;
+            }
+
+            .interactive-showcase {
+                padding: 60px 0;
+            }
+
+            .hotspot-dot {
+                width: 25px;
+                height: 25px;
+            }
+
+            .hotspot-dot::after {
+                font-size: 16px;
+            }
+
+            .product-popup {
+                width: 280px;
+                position: fixed;
+                bottom: 20px !important;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 1000;
+            }
+
+            .hotspot.active .product-popup {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+            }
+
+            .popup-image {
+                height: 150px;
+            }
+
+            .popup-content {
+                padding: 15px;
+            }
+
+            .popup-content h4 {
+                font-size: 1rem;
+            }
+
+            .product-price {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Drawer Overlay -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="color.html">COLOR</a></li>
+            <li><a href="sfx.html">SFX</a></li>
+            <li><a href="tools.html">TOOLS</a></li>
+            <li><a href="studio.html">MY STUDIO</a></li>
+            <li><a href="buy.html">BUY</a></li>
+        </ul>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+        <a href="index.html" class="logo">LipuHossain</a>
+        <ul class="nav-menu">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="color.html">COLOR</a></li>
+            <li><a href="sfx.html">SFX</a></li>
+            <li><a href="tools.html">TOOLS</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>MY STUDIO</h1>
+            <p>Creative Workspace & Setup</p>
+        </div>
+    </div>
+
+    <!-- Full-Width Section 1 -->
+    <div class="full-width-section">
+        <img src="images/studio/item1.jpg" alt="Creative Workspace">
+        <div class="full-width-content">
+            <h2>Creative Workspace</h2>
+            <p>A carefully designed environment that combines functionality with inspiration. Every element in this space is chosen to enhance productivity and spark creativity during long work sessions.</p>
+        </div>
+    </div>
+
+    <!-- Magazine Layout Container -->
+    <div class="magazine-container">
+
+        <!-- Spread 1: Layout 1 - Large image left, narrow text column right -->
+        <div class="spread layout-1">
+            <div class="image-section">
+                <img src="images/studio/item1.jpg" alt="Workstation">
+            </div>
+            <div class="text-section">
+                <div class="accent-line"></div>
+                <span class="jp-text">ワークステーション</span>
+                <h2>Workstation<span class="jp-side">作業空間</span></h2>
+                <p>My main creative hub where all the magic happens <span class="jp-note">(魔法が起こる場所)</span>. This setup is designed for maximum productivity and comfort during long editing sessions.</p>
+                <p>The desk provides ample space for multiple monitors, audio equipment, and all the tools I need within arm's reach <span class="jp-note">(手の届く範囲内)</span>.</p>
+                <h3>Features</h3>
+                <ul>
+                    <li>Ergonomic standing desk with memory presets</li>
+                    <li>Dual monitor setup for efficient workflow</li>
+                    <li>Custom cable management system</li>
+                    <li>Acoustic treatment for optimal sound</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Spread 2: Layout 2 - Text with small image left, large image right -->
+        <div class="spread layout-2">
+            <div class="left-section">
+                <div>
+                    <div class="accent-line"></div>
+                    <span class="jp-text">ライティング</span>
+                    <h2>Lighting Setup<span class="jp-side">照明設備</span></h2>
+                    <p>Professional lighting equipment that ensures perfect illumination <span class="jp-note">(完璧な照明)</span> for video calls, content creation, and photography work.</p>
+                    <p>Adjustable color temperature and intensity allow for complete control over the studio ambiance <span class="jp-note">(雰囲気制御)</span>.</p>
+                </div>
+                <img src="images/studio/item5.jpg" alt="Light detail" class="small-image">
+            </div>
+            <div class="image-section">
+                <img src="images/studio/item2.jpg" alt="Lighting Setup">
+            </div>
+        </div>
+
+        <!-- Spread 3: Layout 3 - Stacked images left, text right -->
+        <div class="spread layout-3">
+            <div class="image-stack">
+                <img src="images/studio/item3.jpg" alt="Audio Top">
+                <img src="images/studio/item4.jpg" alt="Audio Mid">
+                <img src="images/studio/item5.jpg" alt="Audio Bottom">
+            </div>
+            <div class="text-section">
+                <div class="accent-line"></div>
+                <span class="jp-text">オーディオコーナー</span>
+                <h2>Audio Corner<span class="jp-side">音響空間</span></h2>
+                <p>Dedicated space for recording voiceovers, podcasts, and music <span class="jp-note">(音楽録音)</span>. Acoustically treated to minimize echo and background noise.</p>
+                <p>High-quality microphones and audio interface ensure crystal-clear recordings <span class="jp-note">(クリスタルクリア)</span> every time.</p>
+                <h3>Equipment</h3>
+                <ul>
+                    <li>Professional condenser microphone</li>
+                    <li>Audio interface with preamps</li>
+                    <li>Studio monitor speakers</li>
+                    <li>Acoustic foam panels</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Spread 4: Layout 4 - Mosaic grid with 3 images and text block -->
+        <div class="spread layout-4">
+            <div class="image-item">
+                <img src="images/studio/item1.jpg" alt="Camera Gear">
+            </div>
+            <div class="text-item">
+                <div class="accent-line"></div>
+                <span class="jp-text">カメラステーション</span>
+                <h2>Camera Station<span class="jp-side">撮影機材</span></h2>
+                <p>Organized storage and display area for my camera collection <span class="jp-note">(カメラコレクション)</span>. Each piece of equipment has its designated place for quick access.</p>
+                <p>From lenses to accessories, everything is within reach for fast-paced shoots <span class="jp-note">(高速撮影)</span>.</p>
+            </div>
+            <div class="image-item">
+                <img src="images/studio/item2.jpg" alt="Setup Detail">
+            </div>
+            <div class="image-item">
+                <img src="images/studio/item3.jpg" alt="Workspace Detail">
+            </div>
+        </div>
+
+        <!-- Spread 5: Layout 5 - Full-width image top, text columns bottom -->
+        <div class="spread layout-5">
+            <div class="image-section">
+                <img src="images/studio/item4.jpg" alt="Complete Setup">
+            </div>
+            <div class="text-section">
+                <div>
+                    <div class="accent-line"></div>
+                    <span class="jp-text">完全なセットアップ</span>
+                    <h2>Complete Setup<span class="jp-side">完全装備</span></h2>
+                    <p>The studio brings together all elements - from professional equipment to thoughtful design <span class="jp-note">(思慮深いデザイン)</span> - creating an environment that enhances creativity and productivity.</p>
+                </div>
+                <div>
+                    <h3>Design Philosophy</h3>
+                    <p>Every detail has been considered to ensure the space not only looks great but functions perfectly <span class="jp-note">(完璧に機能する)</span> for various creative tasks.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Full-Width Section 2 -->
+    <div class="full-width-section">
+        <img src="images/studio/item3.jpg" alt="Professional Setup">
+        <div class="full-width-content">
+            <h2>Professional Audio Setup</h2>
+            <p>High-quality recording equipment and acoustic treatment ensure crystal-clear audio capture for voiceovers, podcasts, and music production. The space is optimized for both recording and editing workflows.</p>
+        </div>
+    </div>
+
+    <!-- Magazine Section 2 -->
+    <div class="magazine-container">
+        <!-- Spread 6: Layout 6 - Asymmetric with small images top and text bottom -->
+        <div class="spread layout-6">
+            <div class="small-image-1">
+                <img src="images/studio/item5.jpg" alt="Detail 1">
+            </div>
+            <div class="small-image-2">
+                <img src="images/studio/item1.jpg" alt="Detail 2">
+            </div>
+            <div class="text-section">
+                <div class="accent-line"></div>
+                <span class="jp-text">ビハインド・ザ・シーン</span>
+                <h2>Behind the Scenes<span class="jp-side">舞台裏</span></h2>
+                <p>Every successful project starts with proper preparation and organization <span class="jp-note">(組織と準備)</span>. The studio workflow is designed to minimize distractions and maximize creative output.</p>
+                <p>From pre-production planning to final delivery, each step is carefully considered to ensure the highest quality results <span class="jp-note">(最高品質)</span>.</p>
+                <h3>Workflow Essentials</h3>
+                <ul>
+                    <li>Organized project management system</li>
+                    <li>Backup and archive solutions</li>
+                    <li>Efficient file naming conventions</li>
+                    <li>Regular equipment maintenance</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Spread 7: Layout 7 - Large hero image with text overlay -->
+        <div class="spread layout-7">
+            <img src="images/studio/item2.jpg" alt="Inspiration" class="hero-image">
+            <div class="text-overlay">
+                <div class="accent-line"></div>
+                <span class="jp-text">クリエイティブインスピレーション</span>
+                <h2>Creative Inspiration</h2>
+                <p>The studio is more than just a workspace <span class="jp-note">(作業空間以上)</span> - it's a sanctuary for creative exploration. Each element is thoughtfully chosen to inspire and elevate the creative process.</p>
+                <p>From the carefully selected color palette to the strategic placement of inspiring artwork, every detail contributes to an environment that fosters innovation <span class="jp-note">(革新的な環境)</span> and artistic expression.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Full-Width Section 3 -->
+    <div class="full-width-section">
+        <img src="images/studio/item5.jpg" alt="Inspiration Space">
+        <div class="full-width-content">
+            <h2>Visual Inspiration</h2>
+            <p>A curated wall of references, mood boards, and current projects keeps creative momentum flowing. This dedicated space serves as a constant source of ideas and maintains focus on ongoing work.</p>
+        </div>
+    </div>
+
+    <!-- Load website configuration -->
+    <script src="config.js"></script>
+
+    <script>
+        // Add product hotspots to all magazine spread images
+        function addProductHotspots() {
+            if (!websiteConfig.studioSection || !websiteConfig.studioSection.items) return;
+
+            const items = websiteConfig.studioSection.items;
+
+            // Find ALL images in both magazine containers AND full-width sections
+            const allImages = document.querySelectorAll('.magazine-container img, .full-width-section img');
+
+            allImages.forEach(img => {
+                const imgSrc = img.getAttribute('src');
+
+                // Find matching item in config
+                const matchingItem = items.find(item => item.image === imgSrc);
+                if (!matchingItem || !matchingItem.hotspots || matchingItem.hotspots.length === 0) return;
+
+                // Get the parent element to position hotspots
+                // For full-width sections, use the .full-width-section container itself
+                let parent = img.parentElement;
+                if (parent.classList.contains('full-width-section')) {
+                    parent = parent;
+                } else {
+                    parent = img.parentElement;
+                }
+
+                const originalPosition = window.getComputedStyle(parent).position;
+
+                // Make parent relative positioned for hotspots if not already
+                if (originalPosition === 'static') {
+                    parent.style.position = 'relative';
+                }
+
+                // Create hotspots for each product (max 5)
+                const maxHotspots = Math.min(matchingItem.hotspots.length, 5);
+                for (let i = 0; i < maxHotspots; i++) {
+                    const hotspot = matchingItem.hotspots[i];
+
+                    const hotspotElement = document.createElement('div');
+                    hotspotElement.className = 'hotspot';
+                    hotspotElement.style.top = `${hotspot.position.y}%`;
+                    hotspotElement.style.left = `${hotspot.position.x}%`;
+                    hotspotElement.setAttribute('data-product', i);
+
+                    hotspotElement.innerHTML = `
+                        <div class="hotspot-pulse"></div>
+                        <div class="hotspot-dot"></div>
+                        <div class="product-popup">
+                            <div class="popup-content">
+                                <h4>${hotspot.productName}</h4>
+                                <p class="product-description">${hotspot.productDescription}</p>
+                                <p class="product-price">${hotspot.productPrice}</p>
+                                <a href="${hotspot.buyLink}" class="buy-button" target="_blank">View Product →</a>
+                            </div>
+                        </div>
+                    `;
+
+                    parent.appendChild(hotspotElement);
+                }
+            });
+        }
+
+        // Load hotspots on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            addProductHotspots();
+            // Initialize hotspot interactions after content is loaded
+            setTimeout(initializeHotspots, 100);
+        });
+
+        // Interactive Hotspot Functionality
+        function initializeHotspots() {
+            const hotspots = document.querySelectorAll('.hotspot');
+            let activeHotspot = null;
+
+            hotspots.forEach(hotspot => {
+                // Mobile: Tap to toggle popup
+                hotspot.addEventListener('click', function(e) {
+                    e.stopPropagation();
+
+                    // If clicking the buy button, let it navigate
+                    if (e.target.classList.contains('buy-button')) {
+                        return;
+                    }
+
+                    // Close other popups
+                    if (activeHotspot && activeHotspot !== this) {
+                        activeHotspot.classList.remove('active');
+                    }
+
+                    // Toggle current popup
+                    this.classList.toggle('active');
+                    activeHotspot = this.classList.contains('active') ? this : null;
+                });
+            });
+
+            // Close popup when clicking outside
+            document.addEventListener('click', function(e) {
+                if (activeHotspot && !e.target.closest('.hotspot')) {
+                    activeHotspot.classList.remove('active');
+                    activeHotspot = null;
+                }
+            });
+
+            // Desktop: Hover behavior is handled by CSS
+            // But we add click to navigate directly on desktop
+            if (window.innerWidth > 480) {
+                hotspots.forEach(hotspot => {
+                    hotspot.addEventListener('click', function(e) {
+                        // If clicking the buy button, let it navigate
+                        if (!e.target.classList.contains('buy-button')) {
+                            const buyButton = this.querySelector('.buy-button');
+                            if (buyButton) {
+                                window.open(buyButton.href, '_blank');
+                            }
+                        }
+                    });
+                });
+            }
+        }
+
+        // Mobile Drawer functionality
+        const hamburger = document.getElementById('hamburger');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        const drawerOverlay = document.getElementById('drawerOverlay');
+
+        function toggleDrawer() {
+            hamburger.classList.toggle('active');
+            mobileDrawer.classList.toggle('active');
+            drawerOverlay.classList.toggle('active');
+        }
+
+        hamburger.addEventListener('click', toggleDrawer);
+        drawerOverlay.addEventListener('click', toggleDrawer);
+
+        const drawerLinks = mobileDrawer.querySelectorAll('a');
+        drawerLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileDrawer.classList.remove('active');
+                drawerOverlay.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -79,6 +79,229 @@ const websiteConfig = {
     },
 
     // ========================================
+    // MY STUDIO SECTION
+    // ========================================
+    studioSection: {
+        title: "MY STUDIO",
+        subtitle: "Creative Workspace & Setup",
+        backgroundImage: "images/fulls/studio-bg.jpg",  // Background for homepage section
+        heroImage: "images/fulls/studio-hero.jpg",      // Hero image for studio.html page
+        link: "studio.html",
+
+        // Studio page content
+        pageTitle: "MY STUDIO - Creative Workspace & Setup",
+        pageHeading: "MY STUDIO",
+        pageSubheading: "Creative Workspace & Setup",
+
+        // Studio items for photobook layout
+        items: [
+            {
+                id: "item-1",
+                image: "images/studio/item1.jpg",
+
+                // Interactive Product Hotspots (IKEA-style clickable markers)
+                // Add 1-5 hotspots per image (leave empty array [] for no hotspots)
+                hotspots: [
+                    {
+                        // Hotspot 1
+                        productName: "Studio Monitor",              // Product name shown in popup
+                        productDescription: "Professional-grade studio monitor for accurate sound reproduction",  // Product description
+                        productPrice: "$299.99",                    // Product price
+                        productImage: "images/products/monitor.jpg", // Product thumbnail image in popup
+                        buyLink: "https://example.com/product1",    // Where to buy (opens in new tab)
+                        position: {
+                            x: 30,  // Position from left (0-100%)
+                            y: 40   // Position from top (0-100%)
+                        }
+                    },
+                    {
+                        // Hotspot 2
+                        productName: "Desk Lamp",
+                        productDescription: "Adjustable LED desk lamp with touch control",
+                        productPrice: "$89.99",
+                        productImage: "images/products/light.jpg",
+                        buyLink: "https://example.com/product2",
+                        position: { x: 70, y: 30 }
+                    }
+                    // Add up to 3 more hotspots (max 5 total)
+                ],
+                title: "Workstation",
+                description: "My main creative hub where all the magic happens. This setup is designed for maximum productivity and comfort during long editing sessions.",
+                details: "The desk provides ample space for multiple monitors, audio equipment, and all the tools I need within arm's reach.",
+                specs: {
+                    heading: "Features",
+                    list: [
+                        "Ergonomic standing desk with memory presets",
+                        "Dual monitor setup for efficient workflow",
+                        "Custom cable management system",
+                        "Acoustic treatment for optimal sound"
+                    ]
+                }
+            },
+            {
+                id: "item-2",
+                image: "images/studio/item2.jpg",
+                hotspots: [
+                    {
+                        productName: "LED Panel Light",
+                        productDescription: "Professional LED panel with adjustable color temperature control",
+                        productPrice: "$189.99",
+                        productImage: "images/products/light.jpg",
+                        buyLink: "https://example.com/light",
+                        position: { x: 50, y: 45 }
+                    }
+                ],
+                title: "Lighting Setup",
+                description: "Professional lighting equipment that ensures perfect illumination for video calls, content creation, and photography work.",
+                details: "Adjustable color temperature and intensity allow for complete control over the studio ambiance and creative output.",
+                specs: {
+                    heading: "Equipment",
+                    list: [
+                        "LED panel lights with diffusers",
+                        "Adjustable light stands",
+                        "RGB accent lighting",
+                        "Softboxes for portrait photography"
+                    ]
+                }
+            },
+            {
+                id: "item-3",
+                image: "images/studio/item3.jpg",
+                hotspots: [
+                    {
+                        productName: "Condenser Microphone",
+                        productDescription: "Large diaphragm condenser mic with cardioid polar pattern",
+                        productPrice: "$349.99",
+                        productImage: "images/products/microphone.jpg",
+                        buyLink: "https://example.com/mic",
+                        position: { x: 45, y: 35 }
+                    },
+                    {
+                        productName: "Audio Interface",
+                        productDescription: "Professional audio interface with preamps and 48V phantom power",
+                        productPrice: "$279.99",
+                        productImage: "images/products/monitor.jpg",
+                        buyLink: "https://example.com/interface",
+                        position: { x: 60, y: 60 }
+                    }
+                ],
+                title: "Audio Corner",
+                description: "Dedicated space for recording voiceovers, podcasts, and music. Acoustically treated to minimize echo and background noise.",
+                details: "High-quality microphones and audio interface ensure crystal-clear recordings every time.",
+                specs: {
+                    heading: "Gear",
+                    list: [
+                        "Condenser microphone with pop filter",
+                        "Audio interface with phantom power",
+                        "Studio headphones for monitoring",
+                        "Acoustic foam panels"
+                    ]
+                }
+            },
+            {
+                id: "item-4",
+                image: "images/studio/item4.jpg",
+                hotspots: [
+                    {
+                        productName: "Camera Body",
+                        productDescription: "Professional mirrorless camera with 45MP sensor",
+                        productPrice: "$2,499.99",
+                        productImage: "images/products/monitor.jpg",
+                        buyLink: "https://example.com/camera",
+                        position: { x: 40, y: 50 }
+                    }
+                ],
+                title: "Camera Station",
+                description: "Organized storage and display area for my camera collection. Each piece of equipment has its designated place for quick access.",
+                details: "Proper storage ensures all gear stays in optimal condition and ready for any shoot.",
+                specs: {
+                    heading: "Storage",
+                    list: [
+                        "Climate-controlled cabinet",
+                        "Lens organizer with foam inserts",
+                        "Battery charging station",
+                        "Memory card storage system"
+                    ]
+                }
+            },
+            {
+                id: "item-5",
+                image: "images/studio/item5.jpg",
+                hotspots: [
+                    {
+                        productName: "Mood Board Frame",
+                        productDescription: "Magnetic board system for organizing inspiration and references",
+                        productPrice: "$59.99",
+                        productImage: "images/products/light.jpg",
+                        buyLink: "https://example.com/board",
+                        position: { x: 50, y: 40 }
+                    }
+                ],
+                title: "Inspiration Wall",
+                description: "A curated collection of inspiration, mood boards, and current projects. This space keeps me motivated and creatively engaged.",
+                details: "Regular updates ensure fresh ideas and perspectives are always within view during work sessions.",
+                specs: {
+                    heading: "Elements",
+                    list: [
+                        "Magnetic board for quick changes",
+                        "Printed reference materials",
+                        "Project timeline displays",
+                        "Color palette samples"
+                    ]
+                }
+            }
+        ]
+    },
+
+    // ========================================
+    // INTERACTIVE PRODUCT SHOWCASE (Shop My Setup)
+    // ========================================
+    // IKEA-style interactive hotspots on images
+    // Folder structure: images/products/ for product images
+    productShowcase: {
+        heading: "Shop My Setup",
+        subheading: "製品ショーケース",
+        description: "Click on the hotspots to explore the equipment and tools that power my creative workflow. Each item is carefully selected for quality and performance.",
+        note: "(クリックして詳細を表示) Hover over the hotspots to see product details, click to view purchasing options.",
+
+        // Multiple showcase images with hotspots
+        showcases: [
+            {
+                id: "showcase-1",
+                baseImage: "images/studio/item1.jpg",  // Main image with products
+                products: [
+                    {
+                        name: "Studio Monitor",
+                        description: "Professional-grade studio monitor for accurate sound reproduction",
+                        price: "$299.99",
+                        image: "images/products/monitor.jpg",  // Product detail image
+                        link: "https://example.com/product1",  // Buy link
+                        position: { x: 20, y: 30 }  // Position in percentage (x: left, y: top)
+                    },
+                    {
+                        name: "LED Panel Light",
+                        description: "Adjustable color temperature LED panel with softbox diffuser",
+                        price: "$189.99",
+                        image: "images/products/light.jpg",
+                        link: "https://example.com/product2",
+                        position: { x: 60, y: 50 }
+                    },
+                    {
+                        name: "Condenser Microphone",
+                        description: "Large diaphragm condenser mic with cardioid polar pattern",
+                        price: "$349.99",
+                        image: "images/products/microphone.jpg",
+                        link: "https://example.com/product3",
+                        position: { x: 40, y: 70 }
+                    }
+                ]
+            }
+            // Add more showcase images here as needed
+            // Each can have 1-5 products
+        ]
+    },
+
+    // ========================================
     // PRODUCTS GRID SECTION (After GEARS - with margins)
     // ========================================
     // Shows SFX, COLOR, TOOLS in a grid with spacing
@@ -395,6 +618,7 @@ document.addEventListener('DOMContentLoaded', function() {
     loadNavigationContent();
     loadHeroContent();
     loadVideoSections();
+    loadStudioSection();
     loadProductGrid();
     loadToolsPoweredByContent();
     loadIntroductionContent();
@@ -515,6 +739,89 @@ function loadVideoSections() {
             gearsSection.style.backgroundSize = 'cover';
             gearsSection.style.backgroundPosition = 'center';
         }
+    }
+}
+
+/**
+ * Update Studio Section (homepage and studio.html page)
+ */
+function loadStudioSection() {
+    // Update studio section on homepage
+    const studioSection = document.querySelector('.section-studio');
+    if (studioSection) {
+        const heading = studioSection.querySelector('h1');
+        const subtitle = studioSection.querySelector('p');
+        const link = studioSection.querySelector('.explore-btn');
+
+        if (heading) heading.textContent = websiteConfig.studioSection.title;
+        if (subtitle) subtitle.textContent = websiteConfig.studioSection.subtitle;
+        if (link) link.href = websiteConfig.studioSection.link;
+
+        // Set background image
+        studioSection.style.backgroundImage = `url('${websiteConfig.studioSection.backgroundImage}')`;
+        studioSection.style.backgroundSize = 'cover';
+        studioSection.style.backgroundPosition = 'center';
+    }
+
+    // Load studio page content if on studio.html
+    if (window.location.pathname.includes('studio.html')) {
+        loadStudioPageContent();
+    }
+}
+
+/**
+ * Load Studio Page Content
+ */
+function loadStudioPageContent() {
+    // Update page title
+    if (document.querySelector('title')) {
+        document.querySelector('title').textContent = websiteConfig.studioSection.pageTitle;
+    }
+
+    // Update hero section
+    const heroSection = document.querySelector('.hero-section');
+    const heroTitle = document.querySelector('.hero-section h1');
+    const heroSubtitle = document.querySelector('.hero-section p');
+
+    if (heroTitle) heroTitle.textContent = websiteConfig.studioSection.pageHeading;
+    if (heroSubtitle) heroSubtitle.textContent = websiteConfig.studioSection.pageSubheading;
+
+    // Set hero background image
+    if (heroSection && websiteConfig.studioSection.heroImage) {
+        heroSection.style.backgroundImage = `url('${websiteConfig.studioSection.heroImage}')`;
+    }
+
+    // Update photobook items
+    const photobookSection = document.querySelector('.photobook-section');
+    if (photobookSection) {
+        photobookSection.innerHTML = '';
+
+        websiteConfig.studioSection.items.forEach((item, index) => {
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'photobook-item';
+            if (index % 2 !== 0) {
+                itemDiv.classList.add('reverse');
+            }
+
+            itemDiv.innerHTML = `
+                <div class="photobook-image">
+                    <img src="${item.image}" alt="${item.title}">
+                </div>
+                <div class="photobook-content">
+                    <h2>${item.title}</h2>
+                    <p>${item.description}</p>
+                    <p>${item.details}</p>
+                    <div class="specs">
+                        <h3>${item.specs.heading}</h3>
+                        <ul>
+                            ${item.specs.list.map(spec => `<li>${spec}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `;
+
+            photobookSection.appendChild(itemDiv);
+        });
     }
 }
 

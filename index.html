@@ -383,13 +383,31 @@
         }
 
         .section-film,
-        .section-gears {
+        .section-gears,
+        .section-studio {
             width: 100%;
             height: 100%;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+        .section-studio {
+            background-image: url('images/fulls/studio-bg.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .section-studio::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 0;
         }
 
         .section-film .video-background,
@@ -407,7 +425,8 @@
         }
 
         .section-film .hero-content,
-        .section-gears .hero-content {
+        .section-gears .hero-content,
+        .section-studio .hero-content {
             position: relative;
             z-index: 1;
             text-align: center;
@@ -935,7 +954,8 @@
             }
 
             .section-film,
-            .section-gears {
+            .section-gears,
+            .section-studio {
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -944,26 +964,30 @@
             }
 
             .section-film .hero-content,
-            .section-gears .hero-content {
+            .section-gears .hero-content,
+            .section-studio .hero-content {
                 text-align: center !important;
                 width: 100%;
                 padding: 40px 30px;
             }
 
             .section-film .hero-content h1,
-            .section-gears .hero-content h1 {
+            .section-gears .hero-content h1,
+            .section-studio .hero-content h1 {
                 font-size: 1.8rem;
                 letter-spacing: 0.15em;
                 word-wrap: break-word;
             }
 
             .section-film .hero-content p,
-            .section-gears .hero-content p {
+            .section-gears .hero-content p,
+            .section-studio .hero-content p {
                 font-size: 0.9rem;
             }
 
             .section-film .explore-btn,
-            .section-gears .explore-btn {
+            .section-gears .explore-btn,
+            .section-studio .explore-btn {
                 opacity: 1 !important;
                 transform: translateY(0) !important;
                 display: inline-block;
@@ -1173,6 +1197,7 @@
             <li><a href="color.html">COLOR</a></li>
             <li><a href="sfx.html">SFX</a></li>
             <li><a href="tools.html">TOOLS</a></li>
+            <li><a href="studio.html">MY STUDIO</a></li>
             <li><a href="buy.html">BUY</a></li>
         </ul>
     </div>
@@ -1185,6 +1210,7 @@
             <li><a href="color.html">COLOR</a></li>
             <li><a href="sfx.html">SFX</a></li>
             <li><a href="tools.html">TOOLS</a></li>
+            <li><a href="studio.html">MY STUDIO</a></li>
         </ul>
         <div class="hamburger" id="hamburger">
             <span></span>
@@ -1305,6 +1331,17 @@
                 <h1>GEARS I USE</h1>
                 <p>Equipment & Technology</p>
                 <a href="gears.html" class="explore-btn">Explore</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- My Studio Section - Full Width Hero with Image Background -->
+    <div class="film-section-wrapper">
+        <div class="hero-section section-studio">
+            <div class="hero-content">
+                <h1>MY STUDIO</h1>
+                <p>Creative Workspace & Setup</p>
+                <a href="studio.html" class="explore-btn">Explore</a>
             </div>
         </div>
     </div>

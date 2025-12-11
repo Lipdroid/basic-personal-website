@@ -84,8 +84,8 @@ const websiteConfig = {
     studioSection: {
         title: "MY STUDIO",
         subtitle: "Creative Workspace & Setup",
-        backgroundImage: "images/fulls/studio-bg.jpg",  // Background for homepage section
-        heroImage: "images/fulls/studio-hero.jpg",      // Hero image for studio.html page
+        backgroundImage: "images/fulls/studio-bg.jpg",  // Background for homepage section (Recommended: 1920x1080px)
+        heroImage: "images/fulls/studio-hero.jpg",      // Hero image for studio.html page (Recommended: 1920x1080px)
         link: "studio.html",
 
         // Studio page content
@@ -94,10 +94,15 @@ const websiteConfig = {
         pageSubheading: "Creative Workspace & Setup",
 
         // Studio items for photobook layout
+        // IMAGE SIZE GUIDE:
+        // - Full-width sections: 1920x1080px (landscape)
+        // - Magazine spreads (large): 1200x800px (landscape)
+        // - Magazine spreads (small): 800x800px (square)
+        // - Stacked images: 800x600px (landscape)
         items: [
             {
                 id: "item-1",
-                image: "images/studio/item1.jpg",
+                image: "images/studio/item1.jpg",  // Recommended size: 1200x800px
 
                 // Interactive Product Hotspots (IKEA-style clickable markers)
                 // Add 1-5 hotspots per image (leave empty array [] for no hotspots)
@@ -140,7 +145,7 @@ const websiteConfig = {
             },
             {
                 id: "item-2",
-                image: "images/studio/item2.jpg",
+                image: "images/studio/item2.jpg",  // Recommended size: 1200x800px
                 hotspots: [
                     {
                         productName: "LED Panel Light",
@@ -166,7 +171,7 @@ const websiteConfig = {
             },
             {
                 id: "item-3",
-                image: "images/studio/item3.jpg",
+                image: "images/studio/item3.jpg",  // Recommended size: 800x600px (used in stacks)
                 hotspots: [
                     {
                         productName: "Condenser Microphone",
@@ -200,7 +205,7 @@ const websiteConfig = {
             },
             {
                 id: "item-4",
-                image: "images/studio/item4.jpg",
+                image: "images/studio/item4.jpg",  // Recommended size: 1200x800px
                 hotspots: [
                     {
                         productName: "Camera Body",
@@ -226,16 +231,9 @@ const websiteConfig = {
             },
             {
                 id: "item-5",
-                image: "images/studio/item5.jpg",
+                image: "images/studio/item5.jpg",  // Recommended size: 800x800px (small/square)
                 hotspots: [
-                    {
-                        productName: "Mood Board Frame",
-                        productDescription: "Magnetic board system for organizing inspiration and references",
-                        productPrice: "$59.99",
-                        productImage: "images/products/light.jpg",
-                        buyLink: "https://example.com/board",
-                        position: { x: 50, y: 40 }
-                    }
+                    
                 ],
                 title: "Inspiration Wall",
                 description: "A curated collection of inspiration, mood boards, and current projects. This space keeps me motivated and creatively engaged.",
@@ -256,8 +254,9 @@ const websiteConfig = {
     // ========================================
     // INTERACTIVE PRODUCT SHOWCASE (Shop My Setup)
     // ========================================
+    // NOTE: This section is no longer used - hotspots are now added directly to studio items above
     // IKEA-style interactive hotspots on images
-    // Folder structure: images/products/ for product images
+    // Folder structure: images/products/ for product images (Recommended: 400x400px thumbnails)
     productShowcase: {
         heading: "Shop My Setup",
         subheading: "製品ショーケース",
@@ -268,7 +267,7 @@ const websiteConfig = {
         showcases: [
             {
                 id: "showcase-1",
-                baseImage: "images/studio/item1.jpg",  // Main image with products
+                baseImage: "images/studio/item1.jpg",  // Main image with products (Recommended: 1920x1080px)
                 products: [
                     {
                         name: "Studio Monitor",
